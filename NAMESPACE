@@ -1,4 +1,5 @@
 import(stats)
+importFrom("graphics", "barplot", "lines", "par", "points")
 export(create_octaves, dgambin, gambin_exp, fitGambin, AICc)
 S3method(logLik, gambin)
 S3method(AIC, gambin)
