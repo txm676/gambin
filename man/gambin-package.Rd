@@ -6,7 +6,7 @@
 Fit the gambin model to species abundance distributions
 }
 \description{
-This package provides functions for fitting the gambin distribution to species-abundance distributions from ecological data. The main function is fitGambin, which estimates the 'alpha' parameter of the gambin distribution using maximum likelihood. 
+This package provides functions for fitting the gambin distribution to species-abundance distributions from ecological data. The main function is fitGambin(), which estimates the 'alpha' parameter of the gambin distribution using maximum likelihood. 
 }
 \details{
 \tabular{ll}{
@@ -22,7 +22,7 @@ Use the \code{fitGambin} function fit the gambin model to a vector of species ab
 \author{Michael Krabbe Borregaard, Thomas J. Matthews & Karl I. Ugland\cr
 Maintainer: Michael Krabbe Borregaard <mkborregaard@snm.ku.dk>}
 \references{
-Matthews, T.J., Borregaard, M.K., Ugland, K., Borges, P.A.V., Rigal, F. & Whittaker, R.J. (Early View Online). The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, implementation and interpretation. Ecography, DOI: 10.1111/ecog.00861 \cr
+Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V, Rigal, F., Cardoso, P. and Whittaker, R.J. (2014) The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, implementation and interpretation. Ecography 37: 1002-1011.\cr
 Ugland, K.I., Lambshead, F.J.D., McGill, B.J., Gray, J.S., O'Dea, N., Ladle, R.J. & Whittaker, R.J. (2007). Modelling dimensionality in species abundance distributions: description and evaluation of the Gambin model. Evolutionary Ecology Research, 9, 313-324.
 }
 

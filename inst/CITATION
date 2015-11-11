@@ -1,10 +1,10 @@
 citHeader("To cite gambin in a publication:")
 
 citEntry(entry="Article",
-	title = "Maximum likelihood methods for fitting the Gambin model reveals a superior fit to empirical species-abundance distributions",
-        author = personList(as.person("T.J. Matthews"), as.person("M.K. Borregaard"), as.person("K.I. Ugland"), as.person("P.A.V. Borges"), as.person("F. Rigal"), as.person("R.J. Whittaker")),
-	journal = "MS",
-    volume="MS",
-    pages="MS",
-    year="MS",
-	textVersion = "Matthews, T.J., Borregaard, M.K., Ugland, K., Borges, P.A.V., Rigal, F. & Whittaker, R.J. (submitted MS). Maximum likelihood methods for fitting the Gambin model reveals a superior fit to empirical species-abundance distributions." )
+	title = "The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, implementation and interpretation",
+        author = personList(as.person("T.J. Matthews"), as.person("M.K. Borregaard"), as.person("K.I. Ugland"), as.person("P.A.V. Borges"), as.person("F. Rigal"), as.person("P. Cardoso"), as.person("R.J. Whittaker")),
+	journal = "Ecography",
+    volume="37",
+    pages="1002-1011",
+    year="2014",
+	textVersion = "Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V, Rigal, F., Cardoso, P. and Whittaker, R.J. (2014) The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, implementation and interpretation. Ecography 37: 1002-1011.")
