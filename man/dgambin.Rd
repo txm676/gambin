@@ -24,7 +24,7 @@ gambin_exp(alpha, maxoctave, total_species)
 Ugland, K.I., Lambshead, F.J.D., McGill, B.J., Gray, J.S., O'Dea, N., Ladle, R.J. & Whittaker, R.J. (2007). Modelling dimensionality in species abundance distributions: description and evaluation of the Gambin model. Evolutionary Ecology Research, 9, 313-324.\cr
 Matthews, T.J., Borregaard, M.K., Ugland, K., Borges, P.A.V., Rigal, F. & Whittaker, R.J. (Early View Online). The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, implementation and interpretation. Ecography, DOI: 10.1111/ecog.00861 }
 
-\author{Michael K. Borregaard, Gabriel Areto, Thomas J. Matthews & Karl I. Ugland}
+\author{Michael K. Borregaard, Gabriel Arellano, Thomas J. Matthews & Karl I. Ugland}
 
 \examples{
 expected <- gambin_exp(4, 13, 200)
