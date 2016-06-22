@@ -18,11 +18,11 @@ function(abundances, subsample = 0)
   	} else stop("abundances must be a numeric vector or a data.frame created by create_octaves")	
   }
   
-  val <- optimise(.logLik_gamBin, interval = c(0,30), mydata = mydata)
+  val <- optimise(.logLik_gamBin, interval = c(0,15), mydata = mydata)
   res <- list()
   
   res$Alpha <- val[[1]]
-  if(res$Alpha == 30) 
+  if(res$Alpha == 15) 
   {
     warning("Alpha could not be estimated")
     res$Alpha <- Inf

@@ -18,6 +18,8 @@ function(alpha, mydata, maxoct) #the maxoct argument can be removed if we do not
   if(length(exponent) < length(dgamb)) exponent[(length(exponent)+1):length(dgamb)] <- 0
   lik_dist <- dgamb^exponent
   logLik <- sum(-log(lik_dist))
+  if(logLik == Inf)
+    return(999999999999)
   logLik
 }
 .sample_abundances <-
