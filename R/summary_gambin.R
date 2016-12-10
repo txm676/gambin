@@ -1,3 +1,4 @@
+#' @export
 summary.gambin <-
 function(object, ...)
 {

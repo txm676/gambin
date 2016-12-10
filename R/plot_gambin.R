@@ -1,3 +1,5 @@
+#' @importFrom graphics barplot lines par points
+#' @export
 plot.gambin <-
 function(x, barcol = "grey", barwidth = 1, cex.dots = 1, dotpch = 16, dotcol = par("fg"), line = FALSE, lwd = 1, linecol = par("fg"), ...)
 {

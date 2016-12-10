@@ -1,3 +1,4 @@
+#' @export 
 confint.gambin <-
 function(object, parm = "alpha", level = 0.95, ...)
 {
