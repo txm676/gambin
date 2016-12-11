@@ -3,9 +3,18 @@
 \name{dgambin}
 \alias{dgambin}
 \alias{gambin_exp}
+\alias{pgambin}
+\alias{qgambin}
+\alias{rgambin}
 \title{Calculate the gambin distribution}
 \usage{
 dgambin(x, alpha, maxoctave, log = FALSE)
+
+pgambin(q, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
+
+rgambin(n, alpha, maxoctave)
+
+qgambin(p, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
 
 gambin_exp(alpha, maxoctave, total_species)
 }
@@ -17,6 +26,12 @@ gambin_exp(alpha, maxoctave, total_species)
 \item{maxoctave}{The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?}
 
 \item{log}{logical; Tf \code{TRUE}, probabilities p are given as log(p).}
+
+\item{q}{vector of quantiles.}
+
+\item{n}{number of random values to return.}
+
+\item{p}{vector of probabilities.}
 
 \item{total_species}{The total number of species in the empirical dataset}
 }

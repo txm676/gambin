@@ -36,3 +36,84 @@ dgambin = function(x, alpha, maxoctave, log = FALSE)
   
   res
 }
+
+#' @param q	vector of quantiles.
+#' @rdname dgambin
+#' @export
+pgambin = function(q, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE) 
+{
+  # Form CMF from mass function. Then manipulate as necessary
+  probs = dgambin(0:maxoctave, alpha, maxoctave)
+  
+  if(!lower.tail)
+    probs = 1- probs
+  
+  cum_probs = cumsum(probs)
+  if(log.p)
+    cum_probs = log(cum_probs)
+
+  cum_probs[floor(q) + 1]
+}
+
+#' @param n	number of random values to return.
+#' @rdname dgambin
+#' @export
+rgambin = function(n, alpha, maxoctave) 
+{
+  # Initialise parameters
+  if(length(n) > 1L) n = length(n)
+  # Form look-up table
+  probs = dgambin(0:maxoctave, alpha, maxoctave)
+    
+  sample(0:maxoctave, prob = probs, replace=TRUE, size = n)
+}
+
+#' @param p vector of probabilities.
+#' @rdname dgambin
+#' @export
+qgambin = function(p, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
+{
+  # Form CMF from mass function. Then manipulate as necessary
+  probs = dgambin(0:maxoctave, alpha, maxoctave)
+  ## Add on 0 for cut
+  probs = c(0, probs)
+  
+  if(!lower.tail)
+    probs = 1- probs
+  
+  
+  if(log.p) probs = log(probs)
+  cum_probs = cumsum(probs)
+  
+  ## Use cut and exploit factor
+  as.numeric(cut(p, cum_probs)) - 1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
