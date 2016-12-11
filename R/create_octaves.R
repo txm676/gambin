@@ -1,3 +1,13 @@
+sample_abundances  = function(abundances, individuals)
+{
+  if(!is.numeric(abundances)) stop("abundances must be numeric")
+  species <- as.factor(1:length(abundances))
+  samplevector <- rep(species, abundances)
+  samp <- sample(samplevector, individuals, replace = F)
+  return(table(samp))
+}
+
+
 
 #' @title Reclassify a vector of species' abundances into abundance octaves
 #' @description Creates abundance octaves by a log2 transform that doubles the number 
@@ -12,10 +22,9 @@
 #' data(moths)
 #' create_octaves(moths)
 #' @export
-create_octaves <-
-function(abundances, subsample = 0)  
+create_octaves = function(abundances, subsample = 0)  
 {
-	if(!subsample == 0) abundances <- .sample_abundances(abundances, subsample)
+  if(!subsample == 0) abundances <- sample_abundances(abundances, subsample)
   stopifnot(is.numeric(abundances))
   abundances = abundances[abundances > 0]     # remove zeros
   octs = floor(sapply(abundances, log2))
