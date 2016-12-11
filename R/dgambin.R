@@ -1,7 +1,9 @@
 #' @title Calculate the gambin distribution 
 #' @description Calculate the expected number of species in octaves for a given value of alpha and maxoctave
-#' @param alpha The shape parameter of the GamBin distribution
+#' @param x vector of (non-negative integer) quantiles.
+#' @param alpha The shape parameter of the GamBin distribution.
 #' @param maxoctave The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?
+#' @param log logical; Tf \code{TRUE}, probabilities p are given as log(p).
 #' @param total_species The total number of species in the empirical dataset
 #' @details   \code{dgambin} gives the distribution function of gambin, so all octaves sum to 1.
 #' \code{gambin_exp} multiplies this by the total number of species to give the expected GamBin distribution in units of species, 
@@ -15,21 +17,22 @@
 #' expected <- gambin_exp(4, 13, 200)
 #' plot(expected, type = "l")
 #' @export
-dgambin <-
-function(alpha, maxoctave)
+dgambin = function(x, alpha, maxoctave, log = FALSE)
 {
-  # calculates the 'fitness' distribution of species for a given alpha
-  qG99 = qgamma(0.99, alpha, 1) / 100
-  b1 = 0:99 * qG99
-  b2 = 1:100 * qG99
-  Gj <- (pgamma(b2, alpha, 1) - pgamma(b1, alpha, 1)) / 0.99
+  vec = 0:100/100
+  # Calculates the 'fitness' distribution of species for a given alpha
+  qG99 = qgamma(0.99, alpha, 1) * vec
+  Gj = (pgamma(qG99[-1], alpha, 1) - pgamma(qG99[-101], alpha, 1)) / 0.99
   
-  # a function to give the probability distribution of the GamBin in 
-  Pk <- function(k, octmax) # k is in 0:(nOct-1)
-    return(sum(choose(octmax, k) * (1:100/100)^k * (1 - 1:100/100)^(octmax - k) * Gj)) 
+  gambin_p = function(k) {
+    if(k < 0 || k > maxoctave) 0
+    else sum(choose(maxoctave, k) * vec[-1]^k * (1 - vec[-1])^(maxoctave - k) * Gj)
+  }
   
-  # applies Pk to each octave:
-  ret <- sapply(0:maxoctave, Pk, octmax = maxoctave)
-  names(ret) <- 0:maxoctave
-  ret
+  # Apply Pk to each octave:
+  res = vapply(x, gambin_p,  FUN.VALUE = numeric(1))
+  if(log)
+    res = log(res)
+  
+  res
 }

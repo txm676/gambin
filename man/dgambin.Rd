@@ -5,14 +5,18 @@
 \alias{gambin_exp}
 \title{Calculate the gambin distribution}
 \usage{
-dgambin(alpha, maxoctave)
+dgambin(x, alpha, maxoctave, log = FALSE)
 
 gambin_exp(alpha, maxoctave, total_species)
 }
 \arguments{
-\item{alpha}{The shape parameter of the GamBin distribution}
+\item{x}{vector of (non-negative integer) quantiles.}
+
+\item{alpha}{The shape parameter of the GamBin distribution.}
 
 \item{maxoctave}{The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?}
+
+\item{log}{logical; Tf \code{TRUE}, probabilities p are given as log(p).}
 
 \item{total_species}{The total number of species in the empirical dataset}
 }
