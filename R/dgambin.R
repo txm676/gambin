@@ -3,7 +3,7 @@
 #' @param x vector of (non-negative integer) quantiles.
 #' @param alpha The shape parameter of the GamBin distribution.
 #' @param maxoctave The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?
-#' @param log logical; Tf \code{TRUE}, probabilities p are given as log(p).
+#' @param log logical; If \code{TRUE}, probabilities p are given as log(p).
 #' @param total_species The total number of species in the empirical dataset
 #' @details   \code{dgambin} gives the distribution function of gambin, so all octaves sum to 1.
 #' \code{gambin_exp} multiplies this by the total number of species to give the expected GamBin distribution in units of species, 

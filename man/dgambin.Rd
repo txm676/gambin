@@ -25,7 +25,7 @@ gambin_exp(alpha, maxoctave, total_species)
 
 \item{maxoctave}{The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?}
 
-\item{log}{logical; Tf \code{TRUE}, probabilities p are given as log(p).}
+\item{log}{logical; If \code{TRUE}, probabilities p are given as log(p).}
 
 \item{q}{vector of quantiles.}
 
