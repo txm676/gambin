@@ -54,7 +54,7 @@ fitGambin <- function(abundances, subsample = 0)
     stop("abundances must be a numeric vector or a data.frame created by create_octaves")	
   }
   
-  val <- optimise(logLik_gamBin, interval = c(0,15), mydata = mydata)
+  val <- optimise(logLik_gamBin, interval = c(0, 15), mydata = mydata)
   res <- list()
   
   res$Alpha <- val[[1]]

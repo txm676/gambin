@@ -75,13 +75,13 @@ qgambin = function(p, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
 {
   # Form CMF from mass function. Then manipulate as necessary
   probs = dgambin(0:maxoctave, alpha, maxoctave)
-  ## Add on 0 for cut
+
+  # Add on 0 for cut
   probs = c(0, probs)
   
   if(!lower.tail)
-    probs = 1- probs
-  
-  
+    probs = 1 - probs
+
   if(log.p) probs = log(probs)
   cum_probs = cumsum(probs)
   
