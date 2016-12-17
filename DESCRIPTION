@@ -16,6 +16,8 @@ Description: Fits the gambin distribution to species-abundance distributions
     distribution and for calculating likelihood statistics.
 Imports:
     stats, graphics
+Suggests: 
+    testthat
 URL: https://github.com/mkborregaard/gambin2/
 BugReports: https://github.com/mkborregaard/gambin2/issues
 License: GPL-3
