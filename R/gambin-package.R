@@ -24,8 +24,9 @@
 #' @seealso \url{https://github.com/mkborregaard/gambin}
 #' @examples 
 #' data(moths)
-#' fit <- fitGambin(moths)
-#' plot(fit)
+#' fit = fitGambin(moths)
+#' barplot(fit)
+#' lines(fit)
 #' AIC(fit)
 NULL
 
