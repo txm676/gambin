@@ -3,7 +3,7 @@
 The `gambin` R package
 ======================
 
-[![Build Status](https://travis-ci.org/csgillespie/gambin.svg?branch=master)](https://travis-ci.org/csgillespie/rtypeform) [![Downloads](http://cranlogs.r-pkg.org/badges/gambin?color=brightgreen)](https://cran.r-project.org/package=gambin) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gambin)](https://cran.r-project.org/package=gambin) [![codecov.io](https://codecov.io/github/csgillespie/gambin/coverage.svg?branch=master)](https://codecov.io/github/csgillespie/gambin?branch=master)
+[![Build Status](https://travis-ci.org/csgillespie/gambin.svg?branch=master)](https://travis-ci.org/csgillespie/gambin) [![Downloads](http://cranlogs.r-pkg.org/badges/gambin?color=brightgreen)](https://cran.r-project.org/package=gambin) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gambin)](https://cran.r-project.org/package=gambin) [![codecov.io](https://codecov.io/github/csgillespie/gambin/coverage.svg?branch=master)](https://codecov.io/github/csgillespie/gambin?branch=master)
 
 This package fits the `gambin` distribution to species-abundance distributions from ecological data. 'gambin' is short for 'gamma-binomial'. The main function is `fitGambin`, which estimates the `alpha` parameter of the gambin distribution using maximum likelihood. Functions are also provided to generate the gambin distribution and for calculating likelihood statistics.
 
