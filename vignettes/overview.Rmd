@@ -1,0 +1,38 @@
+---
+title: "Benchmark overview"
+author: "XXX"
+output: rmarkdown::html_vignette
+bibliography: refs.bib
+vignette: >
+  %\VignetteIndexEntry{Benchmark overview}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+# Overview
+
+The gambin distribution is a sample distribution based on a stochastic model of
+species abundances, and has been demonstrated to fit empirical data better than the
+most commonly used species-abundance models (see @matthews2014gambin and @ugland2007modelling). Gambin is a stochastic
+model which combines the gamma distribution with a binomial sampling method. To fit
+the gambin distribution, the abundance data is first binned into octaves. The expected
+abundance octave of a species is given by the number of successfull consecutive
+Bernoulli trials with a given parameter $p$. The parameter $p$ of species is assumed to
+distributed according to a gamma distribution. This approach can be viewed as linking
+the gamma distribution with the probability of success in a binomial process with $x$
+trials. Use the fitGambin function fit the gambin model to a vector of species
+abundances, optionally using a subsample of the individuals. The package estimates the
+alpha (shape) parameter with associated confidence intervals. Methods are provided for
+plotting the results, and for calculating the likelihood of fits.
+
+## Example
+
+```{r}
+library("gambin2")
+data(moths, package="gambin2")
+fit = fitGambin(moths)
+barplot(fit)
+AIC(fit)
+```
+
+## References
