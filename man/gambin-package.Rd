@@ -25,8 +25,9 @@ Methods are provided for plotting the results, and for calculating the likelihoo
 }
 \examples{
 data(moths)
-fit <- fitGambin(moths)
-plot(fit)
+fit = fitGambin(moths)
+barplot(fit)
+lines(fit)
 AIC(fit)
 }
 \references{

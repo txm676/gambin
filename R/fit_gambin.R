@@ -3,19 +3,8 @@
 #' species abundances. To control for the effect of sample size, the abundances 
 #' may be subsampled prior to fitting. 
 #' @param abundances Either a vector of abundances of all species in the sample/community; or the result of \code{create_octaves} 
-#' @param subsample The number of individuals to sample from the community before fitting the GamBin model. If subsample == 0 the entire community is used
-#' @param object a \code{gambin} object created by \code{fitGambin}
-#' @param x A \code{gambin} object created by \code{fitGambin}
-#' @param parm The parameter to calculate confidence intervals from. Only alpha is implemented
-#' @param level The significance level of the confidence intervals 
-#' @param barcol The colour of the bars illustrating the empirical abundance of species in octaves 
-#' @param barwidth The width of the bars illustrating the empirical abundance of species in octaves 
-#' @param cex.dots The size of the dots illustrating the fitted abundance of species in octaves 
-#' @param dotpch The point character of the dots illustrating the fitted abundance of species in octaves 
-#' @param dotcol The colour of the dots illustrating the fitted abundance of species in octaves 
-#' @param line Should the dots be connected with a line? 
-#' @param lwd The width of the line connecting dots 
-#' @param linecol The colour of the line connecting dots 
+#' @param subsample The number of individuals to sample from the community before fitting the GamBin model. 
+#' If subsample == 0 the entire community is used
 #' @param \dots Further arguments to pass to \code{barplot}
 #' @details The gambin distribution is fit to the number of species in abundance octaves, 
 #' as specified by the \code{create_octaves} function. Because the shape of species abundance 
@@ -29,7 +18,8 @@
 #' @examples 
 #' data(moths)
 #' fit <- fitGambin(moths) 
-#' plot(fit)
+#' barplot(fit)
+#' lines(fit, col=2)
 #' summary(fit)
 #' # gambin parameters based on a standardized sample size of 1000 individuals
 #' stand_fit <- replicate(20, fitGambin(moths, 1000)$Alpha) #may take a while on slower computers
