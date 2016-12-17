@@ -17,8 +17,9 @@ Description: Fits the gambin distribution to species-abundance distributions
 Imports:
     stats, graphics
 Suggests: 
-    testthat
+    testthat, knitr
 URL: https://github.com/mkborregaard/gambin2/
 BugReports: https://github.com/mkborregaard/gambin2/issues
 License: GPL-3
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr
