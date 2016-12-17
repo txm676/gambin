@@ -38,6 +38,8 @@ dgambin = function(x, alpha, maxoctave, log = FALSE)
 }
 
 #' @param q	vector of quantiles.
+#' @param lower.tail logical; if \code{TRUE} (default), probabilities are P[X <= x], otherwise, P[X > x].
+#' @param log.p	logical; if \code{TRUE}, probabilities p are given as log(p).
 #' @rdname dgambin
 #' @export
 pgambin = function(q, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE) 

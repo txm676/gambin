@@ -29,6 +29,10 @@ gambin_exp(alpha, maxoctave, total_species)
 
 \item{q}{vector of quantiles.}
 
+\item{lower.tail}{logical; if \code{TRUE} (default), probabilities are P[X <= x], otherwise, P[X > x].}
+
+\item{log.p}{logical; if \code{TRUE}, probabilities p are given as log(p).}
+
 \item{n}{number of random values to return.}
 
 \item{p}{vector of probabilities.}
