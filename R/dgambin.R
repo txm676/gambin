@@ -22,7 +22,7 @@ dgambin = function(x, alpha, maxoctave, log = FALSE)
   vec = 0:100/100
   # Calculates the 'fitness' distribution of species for a given alpha
   qG99 = qgamma(0.99, alpha, 1) * vec
-  Gj = (pgamma(qG99[-1], alpha, 1) - pgamma(qG99[-101], alpha, 1)) / 0.99
+  Gj = diff(pgamma(qG99, alpha, 1)) / 0.99
   
   gambin_p = function(k) {
     if(k < 0 || k > maxoctave) 0
