@@ -1,8 +1,8 @@
 ## XXX: Do you ever estimate maxoct?
 logLik_gamBin = function(alpha, mydata, maxoct) #the maxoct argument can be removed if we do not estimate maxoct
 {
-  if(missing(maxoct)) maxoct <- max(mydata$octave)
-  dgamb <- dgambin(mydata$octave, alpha, maxoct, log=TRUE)
+  if(missing(maxoct)) maxoct = max(mydata$octave)
+  dgamb <- dgambin(mydata$octave, alpha, maxoct, log = TRUE)
   #exponent <- mydata$species # this line and the next can be removed if we do not estimate maxoctave
   #if(length(exponent) < length(dgamb)) exponent[(length(exponent)+1):length(dgamb)] <- 0
   -sum(mydata$species * dgamb)
