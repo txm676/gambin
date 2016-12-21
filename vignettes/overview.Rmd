@@ -28,8 +28,8 @@ plotting the results, and for calculating the likelihood of fits.
 ## Example
 
 ```{r}
-library("gambin2")
-data(moths, package="gambin2")
+library("gambin")
+data(moths, package="gambin")
 fit = fitGambin(moths)
 barplot(fit)
 AIC(fit)

@@ -1,2 +1,2 @@
 library("testthat")
-test_check("gambin2")
+test_check("gambin")
