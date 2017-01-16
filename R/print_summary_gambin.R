@@ -1,3 +1,4 @@
+#' @export
 print.summary.gambin <-
 function(x, ...) 
 {
@@ -17,6 +18,10 @@ function(x, ...)
   cat(floor(x$MaxOctave))
   
   cat("\n\n")
-  cat(paste("Chi-squared fit:", paste("X^2 =", round(x$ChiSq$statistic,3)), paste ("df =", x$Fit$parameter), paste("p-value =", round(x$ChiSq$p.value,3)), "\n", sep = "\t" ))
+  cat(paste("Chi-squared fit:", 
+            paste("X^2 =", round(x$ChiSq$statistic,3)), 
+            paste("df =", attr(x$logLik, "df")), 
+            paste("p-value =", round(x$ChiSq$p.value,3)), 
+            "\n", sep = "\t" ))
   cat("\n")
 }
