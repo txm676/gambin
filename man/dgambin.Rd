@@ -2,21 +2,21 @@
 % Please edit documentation in R/dgambin.R, R/gambin_exp.R
 \name{dgambin}
 \alias{dgambin}
-\alias{gambin_exp}
 \alias{pgambin}
-\alias{qgambin}
 \alias{rgambin}
-\title{Calculate the gambin distribution}
+\alias{qgambin}
+\alias{gambin_exp}
+\title{The  mixture gambin distribution}
 \usage{
-dgambin(x, alpha, maxoctave, log = FALSE)
+dgambin(x, alpha, maxoctave, w = 1, log = FALSE)
 
-pgambin(q, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
+pgambin(q, alpha, maxoctave, w = 1, lower.tail = TRUE, log.p = FALSE)
 
-rgambin(n, alpha, maxoctave)
+rgambin(n, alpha, maxoctave, w = 1)
 
-qgambin(p, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
+qgambin(p, alpha, maxoctave, w = 1, lower.tail = TRUE, log.p = FALSE)
 
-gambin_exp(alpha, maxoctave, total_species)
+gambin_exp(alpha, maxoctave, w = 1, total_species)
 }
 \arguments{
 \item{x}{vector of (non-negative integer) quantiles.}
@@ -24,6 +24,8 @@ gambin_exp(alpha, maxoctave, total_species)
 \item{alpha}{The shape parameter of the GamBin distribution.}
 
 \item{maxoctave}{The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?}
+
+\item{w}{A vector of weights. Default, a single weight. This vector must of the same length as alpha}
 
 \item{log}{logical; If \code{TRUE}, probabilities p are given as log(p).}
 
@@ -46,12 +48,12 @@ A vector with length MaxOctave + 1 of the expected number of species in each oct
 Calculate the expected number of species in octaves for a given value of alpha and maxoctave
 }
 \details{
-\code{dgambin} gives the distribution function of gambin, so all octaves sum to 1.
+\code{dgambin} gives the distribution function of a mixture gambin, so all octaves sum to 1.
 \code{gambin_exp} multiplies this by the total number of species to give the expected GamBin distribution in units of species, 
 for comparison with empirical data.
 }
 \examples{
-expected <- gambin_exp(4, 13, 200)
+expected = gambin_exp(4, 13, total_species = 200)
 plot(expected, type = "l")
 }
 \references{
@@ -60,4 +62,3 @@ Matthews, T.J., Borregaard, M.K., Ugland, K., Borges, P.A.V., Rigal, F. & Whitta
 The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, 
 implementation and interpretation. Ecography, DOI: 10.1111/ecog.00861
 }
-

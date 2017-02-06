@@ -7,6 +7,8 @@ AIC.gambin = function(object, ...)
   AIC(logLik(object))
 }
 
+#' @rdname logLik.gambin
+#' @export
 AICc = function (object, ...) 
   UseMethod("AICc")
 

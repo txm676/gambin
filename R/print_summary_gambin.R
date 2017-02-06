@@ -9,7 +9,7 @@ function(x, ...)
   cat("\n\n")
   
   vals <- data.frame(Estimated = x$Alpha, CI95_low = x$ConfInt95[1], CI95_high = x$ConfInt95[2])
-  rownames(vals) <- "Alpha"
+  rownames(vals) = paste0("alpha", seq_along(x$Alpha))
   
   cat("Coefficients:\n")
   print(vals)

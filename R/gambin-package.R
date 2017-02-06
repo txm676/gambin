@@ -4,7 +4,7 @@
 #' @docType package
 #' @description This package provides functions for fitting the gambin distribution 
 #' to species-abundance distributions from ecological data. The main function is 
-#' fitGambin(), which estimates the 'alpha' parameter of the gambin distribution using maximum likelihood. 
+#' \code{fit_gambin()}, which estimates the 'alpha' parameter of the gambin distribution using maximum likelihood. 
 #' @details The gambin distribution is a sample distribution based on a stochastic model of species abundances, 
 #' and has been demonstrated to fit empirical data better than the most commonly used species-abundance models 
 #' (see references). Gambin is a stochastic model which combines the gamma distribution with a binomial sampling method. 
@@ -12,7 +12,7 @@
 #' octave of a species is given by the number of successfull consecutive Bernoulli 
 #' trials with a given parameter \code{p}. The parameter \code{p} of species is assumed to distributed 
 #' according to a gamma distribution. This approach can be viewed as linking the gamma distribution with 
-#' the probability of success in a binomial process with x trials.  Use the \code{fitGambin} function fit the 
+#' the probability of success in a binomial process with x trials.  Use the \code{fit_gambin()} function fit the 
 #' gambin model to a vector of species abundances, optionally using a subsample of the individuals. 
 #' The package estimates the alpha (shape) parameter with associated confidence intervals. 
 #' Methods are provided for plotting the results, and for calculating the likelihood of fits.
@@ -24,7 +24,7 @@
 #' @seealso \url{https://github.com/mkborregaard/gambin}
 #' @examples 
 #' data(moths)
-#' fit = fitGambin(moths)
+#' fit = fit_abundances(moths)
 #' barplot(fit)
 #' lines(fit)
 #' AIC(fit)

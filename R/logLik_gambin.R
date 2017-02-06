@@ -1,11 +1,23 @@
-## XXX: Do you ever estimate maxoct?
-logLik_gamBin = function(alpha, mydata, maxoct) #the maxoct argument can be removed if we do not estimate maxoct
-{
-  if(missing(maxoct)) maxoct = max(mydata$octave)
-  dgamb <- dgambin(mydata$octave, alpha, maxoct, log = TRUE)
-  #exponent <- mydata$species # this line and the next can be removed if we do not estimate maxoctave
-  #if(length(exponent) < length(dgamb)) exponent[(length(exponent)+1):length(dgamb)] <- 0
-  -sum(mydata$species * dgamb)
+
+
+
+ll_w = function(alpha, w, maxoctave, values, freq) {
+  (res = vapply(seq_along(alpha), 
+                function(i) w[i]*dgambin(values, alpha[i], maxoctave, log=FALSE), 
+                FUN.VALUE = numeric(length(values))))
+  log_prob = log(rowSums(res))   
+  sum(freq*log_prob)
+}
+
+## This function extracts the parameters from par
+## Then sanity checks before passing on to ll_w
+ll_optim = function(par, maxoctave, values, freq) {
+  len_p = (length(par) + 1)/2
+  alpha=par[1:len_p]; w=par[(len_p+1):(2*len_p)]
+  w[len_p] = 1 - sum(w, na.rm=TRUE)
+  if(any(alpha < 0) || any(w < 0) || any(w > 1)) return(Inf)
+  #w = w/sum(w)
+  -ll_w(alpha, w, maxoctave, values, freq)  
 }
 
 #' @title Likelihood statistics for the GamBin model
@@ -18,7 +30,7 @@ logLik_gamBin = function(alpha, mydata, maxoct) #the maxoct argument can be remo
 #' IEEE Transactions on 19.6 (1974): 716-723.
 #' @examples 
 #' data(moths)
-#' fit <- fitGambin(moths)
+#' fit = fit_abundances(moths)
 #' AIC(fit)
 #' @importFrom stats AIC chisq.test coef confint logLik
 #' @importFrom stats nobs optimise pgamma predict qchisq qgamma

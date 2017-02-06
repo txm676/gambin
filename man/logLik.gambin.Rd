@@ -2,12 +2,15 @@
 % Please edit documentation in R/AICc.R, R/BIC_gambin.R, R/logLik_gambin.R
 \name{AIC.gambin}
 \alias{AIC.gambin}
+\alias{AICc}
 \alias{AICc.gambin}
 \alias{BIC.gambin}
 \alias{logLik.gambin}
 \title{Likelihood statistics for the GamBin model}
 \usage{
 \method{AIC}{gambin}(object, ...)
+
+AICc(object, ...)
 
 \method{AICc}{gambin}(object, ...)
 
@@ -29,11 +32,10 @@ the degree of fit of the GamBin model to empirical species abundance distributio
 }
 \examples{
 data(moths)
-fit <- fitGambin(moths)
+fit = fit_abundances(moths)
 AIC(fit)
 }
 \references{
 Akaike, Hirotugu. "A new look at the statistical model identification." Automatic Control, 
 IEEE Transactions on 19.6 (1974): 716-723.
 }
-

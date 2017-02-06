@@ -30,7 +30,7 @@ plotting the results, and for calculating the likelihood of fits.
 ```{r}
 library("gambin")
 data(moths, package="gambin")
-fit = fitGambin(moths)
+fit = fit_abundances(moths)
 barplot(fit)
 AIC(fit)
 ```

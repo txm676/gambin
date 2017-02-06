@@ -1,7 +1,7 @@
 Package: gambin
 Type: Package
 Title: Fit the GamBin Model to Species Abundance Distributions
-Version: 2.0.0
+Version: 2.1.0
 Authors@R: c(person(given=c("Michael", "Krabbe"), family="Borregaard",
     email="mkborregaard@snm.ku.dk", role = c("aut", "cre")), 
     person(given="Thomas", family="Matthews", role = "aut"), 
@@ -21,5 +21,5 @@ Suggests:
 URL: https://github.com/mkborregaard/gambin/
 BugReports: https://github.com/mkborregaard/gambin/issues
 License: GPL-3
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.0
 VignetteBuilder: knitr

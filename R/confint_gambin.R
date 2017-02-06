@@ -1,3 +1,9 @@
+logLik_gamBin = function(alpha, x) {
+  dgamb = dgambin(x$octave, alpha = alpha, maxoctave = max(x$octave), 
+                  w = 1, log = TRUE)
+  -sum(x$species * dgamb)
+}
+
 est_confint  = function(est_alpha, est_likelihood, mydata, level) {
   
   conf_logLik = function(alpha, mydata, est_likelihood, level)

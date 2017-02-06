@@ -1,6 +1,5 @@
 #' @export
-print.gambin <-
-function(x, ...) 
+print.gambin = function(x, ...) 
 {
   cat("\n")
   cat("GamBin distribution fit\n")

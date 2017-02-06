@@ -11,4 +11,3 @@ Williams, C.B. (1964) Patterns in the balance of nature. Academic Press, London.
 \description{
 Macro-Lepidoptera captured in a light trap at Rothamsted Experimental Station during 1935.
 }
-
