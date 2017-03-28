@@ -74,7 +74,7 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
   logLik = -val$value
   ## -1: weights have to sum to 1
   ## -1: one of the octaves is equal to max(data)
-  attr(logLik, "df") = no_of_components*3 - 2 
+  attr(logLik, "df") = no_of_components*2 + (no_of_components - 1) 
   attr(logLik, "nobs") = nrow(mydata)
   class(logLik) = "logLik"
   res$logLik = logLik
