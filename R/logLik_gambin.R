@@ -59,7 +59,8 @@ estimate_parameters = function(par, values, freq, cores = NULL) {
           values = values, freq = freq)
   }
   cost = unlist(lapply(res, function(i) i$value))
-  optimal = res[[which.max(cost)]]
-  optimal$octaves = octaves[which.max(cost),]
+  #return(cost)
+  optimal = res[[which.min(cost)]]
+  optimal$octaves = octaves[which.min(cost),]
   optimal
 }

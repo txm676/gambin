@@ -63,7 +63,7 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
     val = estimate_parameters(par = c(alpha, w), values = mydata$octave, 
                               freq = mydata$species, cores = cores)
   }
-  
+  #return(val)
   res = list()
   res$alpha = val$par[1:no_of_components]
   res$w = val$par[(no_of_components+1):(2*no_of_components)]
