@@ -8,14 +8,15 @@ function(x, ...)
   cat(x$Dataname)
   cat("\n\n")
   
-  vals <- data.frame(Estimated = x$Alpha, CI95_low = x$ConfInt95[1], CI95_high = x$ConfInt95[2])
-  rownames(vals) = paste0("alpha", seq_along(x$Alpha))
-  
-  cat("Coefficients:\n")
-  print(vals)
+  if(length(x$alpha) == 1) {     
+    vals <- data.frame(Estimated = x$alpha, CI95_low = x$ConfInt95[1], CI95_high = x$ConfInt95[2])
+    rownames(vals) = paste0("alpha", seq_along(x$Alpha))
+    cat("Coefficients:\n")
+    print(vals)
+  }
 
   cat("MaxOctave\t")
-  cat(floor(x$MaxOctave))
+  cat(floor(x$octaves))
   
   cat("\n\n")
   cat(paste("Chi-squared fit:", 

@@ -45,7 +45,7 @@ dgambin = function(x, alpha, maxoctave, w = 1,log = FALSE)
   w = if(length(w) == 1) rep(1/length(alpha), length(alpha)) else w = w/sum(w)
   
   res = vapply(seq_along(alpha), 
-               function(i) w[i]*dgambin_single(x, alpha[i], maxoctave, log=FALSE), 
+               function(i) w[i]*dgambin_single(x, alpha[i], maxoctave[i], log=FALSE), 
                FUN.VALUE = numeric(length(x)))
   
   res = rowSums(res)
@@ -63,7 +63,7 @@ dgambin = function(x, alpha, maxoctave, w = 1,log = FALSE)
 pgambin = function(q, alpha, maxoctave, w = 1, lower.tail = TRUE, log.p = FALSE) 
 {
   # Form CMF from mass function. Then manipulate as necessary
-  probs = dgambin(0:maxoctave, alpha,  maxoctave, w=w)
+  probs = dgambin(0:max(maxoctave), alpha,  maxoctave, w=w)
   
   if(!lower.tail)
     probs = 1- probs
@@ -83,9 +83,9 @@ rgambin = function(n, alpha, maxoctave, w=1)
   # Initialise parameters
   if(length(n) > 1L) n = length(n)
   # Form look-up table
-  probs = dgambin(0:maxoctave, alpha, maxoctave, w=w)
+  probs = dgambin(0:max(maxoctave), alpha, maxoctave, w=w)
   
-  sample(0:maxoctave, prob = probs, replace=TRUE, size = n)
+  sample(0:max(maxoctave), prob = probs, replace=TRUE, size = n)
 }
 
 #' @param p vector of probabilities.
@@ -94,7 +94,7 @@ rgambin = function(n, alpha, maxoctave, w=1)
 qgambin = function(p, alpha, maxoctave, w=1, lower.tail = TRUE, log.p = FALSE)
 {
   # Form CMF from mass function. Then manipulate as necessary
-  probs = dgambin(0:maxoctave, alpha, maxoctave, w=w)
+  probs = dgambin(0:max(maxoctave), alpha, maxoctave, w=w)
   
   # Add on 0 for cut
   probs = c(0, probs)
@@ -108,32 +108,4 @@ qgambin = function(p, alpha, maxoctave, w=1, lower.tail = TRUE, log.p = FALSE)
   ## Use cut and exploit factor
   as.numeric(cut(p, cum_probs)) - 1
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

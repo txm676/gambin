@@ -5,12 +5,12 @@ summary.gambin = function(object, ...)
   res$Data = object$Data
   res$Dataname = object$Dataname
   
-  res$Alpha = object$Alpha
-  res$MaxOctave = object$MaxOctave
-  res$coefficients = res$coefficients
+  res$alpha = object$alpha
+  res$octaves = object$octaves
+  res$coefficients = object$coefficients
   res$residuals = object$Data$species - object$fitted.values
   
-  res$ConfInt95 = if(length(res$Alpha) > 1) NA else confint(object)
+  res$ConfInt95 = if(length(res$alpha) > 1) NA else confint(object)
   res$logLik = object$logLik
   
   chiprobs = object$fitted.values/sum(object$fitted.values)

@@ -27,7 +27,7 @@ AICc(object, ...)
 logLik returns an R object of type \code{logLik}. The other function return the numerical value of the statistic
 }
 \description{
-Uses likelihood and information theoretical approaches to reveal 
+Uses likelihood and information theoretical approaches to reveal
 the degree of fit of the GamBin model to empirical species abundance distributions.
 }
 \examples{
@@ -36,6 +36,6 @@ fit = fit_abundances(moths)
 AIC(fit)
 }
 \references{
-Akaike, Hirotugu. "A new look at the statistical model identification." Automatic Control, 
+Akaike, Hirotugu. "A new look at the statistical model identification." Automatic Control,
 IEEE Transactions on 19.6 (1974): 716-723.
 }

@@ -5,47 +5,50 @@
 \alias{fitGambin}
 \title{Fit the GamBin model to a species abundance distribution}
 \usage{
-fit_abundances(abundances, subsample = 0, no_of_components = 1)
+fit_abundances(abundances, subsample = 0, no_of_components = 1, cores = 1)
 
 fitGambin(abundances, subsample = 0)
 }
 \arguments{
 \item{abundances}{Either a vector of abundances of all species in the sample/community; or the result of \code{create_octaves}}
 
-\item{subsample}{The number of individuals to sample from the community before fitting the GamBin model. 
+\item{subsample}{The number of individuals to sample from the community before fitting the GamBin model.
 If subsample == 0 the entire community is used}
 
 \item{no_of_components}{Number of components to fit.}
+
+\item{cores}{No of cores to use when fitting. Use \code{parallel::detectCores()} to
+detect the number of cores on your machine.}
 
 \item{\dots}{Further arguments to pass to \code{barplot}}
 }
 \value{
 The \code{fit_abunbances} function returns an object of class \code{gambin}, with the \code{alpha},
 \code{w}
-and \code{MaxOctave} parameters of the GamBin mixture distribution, 
+and \code{MaxOctave} parameters of the GamBin mixture distribution,
 the likelihood of the fit, and the empirical distribution over octaves.
 }
 \description{
-Uses maximum likelihood methods to fit the GamBin model to binned 
-species abundances. To control for the effect of sample size, the abundances 
+Uses maximum likelihood methods to fit the GamBin model to binned
+species abundances. To control for the effect of sample size, the abundances
 may be subsampled prior to fitting.
 }
 \details{
-The gambin distribution is fit to the number of species in abundance octaves, 
-as specified by the \code{create_octaves} function. Because the shape of species abundance 
-distributions depend on sample size, abundances of different communities should be compared 
-on equally large samples. The sample size can be set by the \code{subsample} parameter. 
-To estimate \code{alpha} from a standardised sample, the function must be run several 
-times; see the examples. The \code{plot} method creates a barplot showing the observed 
+The gambin distribution is fit to the number of species in abundance octaves,
+as specified by the \code{create_octaves} function. Because the shape of species abundance
+distributions depend on sample size, abundances of different communities should be compared
+on equally large samples. The sample size can be set by the \code{subsample} parameter.
+To estimate \code{alpha} from a standardised sample, the function must be run several
+times; see the examples. The \code{plot} method creates a barplot showing the observed
 number of species in octaves, with the fitted GamBin distribution shown as black dots.
 }
 \examples{
 data(moths)
-fit = fit_abundances(moths) 
+fit = fit_abundances(create_octaves(moths))
 barplot(fit)
 lines(fit, col=2)
 summary(fit)
 # gambin parameters based on a standardized sample size of 1000 individuals
-stand_fit <- replicate(20, fit_abundances(moths, 1000)$Alpha) #may take a while on slower computers
+stand_fit <- replicate(20, fit_abundances(moths, 1000)$alpha) #may take a while on slower computers
 print(c(mean = mean(stand_fit), sd = sd(stand_fit)))
 }

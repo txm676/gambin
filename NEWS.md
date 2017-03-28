@@ -1,6 +1,6 @@
 ## Version 2.1.0
 
-  * Mixture models
+  * Adding support for mixture models
   
 ## Version 2.0.0
 
