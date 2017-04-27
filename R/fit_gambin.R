@@ -1,3 +1,12 @@
+core_message = function(cores) {
+  if(cores == 1L) {
+    message("Using 1 core. Your machine has ", parallel::detectCores(), " available.")
+  } else {
+    message("Using ", cores, " cores. Your machine has ", parallel::detectCores(), " cores available.")
+  }
+}
+
+
 #' @title Fit the GamBin model to a species abundance distribution
 #' @description Uses maximum likelihood methods to fit the GamBin model to binned
 #' species abundances. To control for the effect of sample size, the abundances
@@ -31,9 +40,8 @@
 #' stand_fit <- replicate(20, fit_abundances(moths, 1000)$alpha) #may take a while on slower computers
 #' print(c(mean = mean(stand_fit), sd = sd(stand_fit)))
 #' @export
-fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, cores=1)
+fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, cores = 1)
 {
-  # for the GamBin function, all the abundances are binned into octaves (on log base 2)
 
   # test for NA's in the data (and that it is a numeric vector)
   Dataname <- deparse(substitute(abundances))
@@ -58,12 +66,12 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
                 lower = 0, upper = 100)
     val$octaves = max(mydata$octave)
   } else {
+    core_message(cores)
     alpha = rep(1, no_of_components)
     w = rep(1/length(alpha), length(alpha) - 1)
     val = estimate_parameters(par = c(alpha, w), values = mydata$octave, 
                               freq = mydata$species, cores = cores)
   }
-  #return(val)
   res = list()
   res$alpha = val$par[1:no_of_components]
   res$w = val$par[(no_of_components+1):(2*no_of_components)]
