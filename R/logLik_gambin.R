@@ -1,3 +1,4 @@
+## Calculates the log likelhood for the mixture gambin model
 ll_w = function(alpha, w, maxoctave, values, freq) {
   (res = vapply(seq_along(alpha),
                 function(i) w[i]*dgambin(values, alpha[i], maxoctave[i], log=FALSE),
@@ -33,10 +34,8 @@ ll_optim = function(par, maxoctave, values, freq) {
 #' @importFrom stats AIC chisq.test coef confint logLik
 #' @importFrom stats nobs optimise pgamma predict qchisq qgamma
 #' @export
-logLik.gambin = function(object, ...)
-{
-  return(object$logLik)
-}
+logLik.gambin = function(object, ...) object$logLik 
+
 #' @importFrom doParallel registerDoParallel
 #' @import foreach
 #' @importFrom gtools combinations
@@ -47,11 +46,12 @@ estimate_parameters = function(par, values, freq, cores = NULL) {
                                  repeats.allowed = TRUE, v = 0:max(values))
   
   octaves = octaves[apply(octaves, 1, function(i) any(i == max(values))),]
-  
+
   ## Create parallel backend
-  cl = makeCluster(cores)
+  cl = makeCluster(cores); on.exit(stopCluster(cl))
   registerDoParallel(cl)
-  on.exit(stopCluster(cl))
+
+  i = 1 #Dummy line for RStudio warnings
   ## Run in parallel
   res = foreach(i=1:nrow(octaves))  %dopar% {
     optim(par = par, fn=ll_optim,

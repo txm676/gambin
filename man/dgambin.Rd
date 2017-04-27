@@ -6,7 +6,7 @@
 \alias{rgambin}
 \alias{qgambin}
 \alias{gambin_exp}
-\title{The  mixture gambin distribution}
+\title{The mixture gambin distribution}
 \usage{
 dgambin(x, alpha, maxoctave, w = 1, log = FALSE)
 
@@ -25,7 +25,7 @@ gambin_exp(alpha, maxoctave, w = 1, total_species)
 
 \item{maxoctave}{The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?}
 
-\item{w}{A vector of weights. Default, a single weight. This vector must of the same length as alpha}
+\item{w}{A vector of weights. Default, a single weight. This vector must of the same length as alpha.}
 
 \item{log}{logical; If \code{TRUE}, probabilities p are given as log(p).}
 
@@ -45,7 +45,8 @@ gambin_exp(alpha, maxoctave, w = 1, total_species)
 A vector with length MaxOctave + 1 of the expected number of species in each octave
 }
 \description{
-Calculate the expected number of species in octaves for a given value of alpha and maxoctave
+Density, distribution function, quantile function and random generation for the mixture 
+gambin distribution.
 }
 \details{
 \code{dgambin} gives the distribution function of a mixture gambin, so all octaves sum to 1.
@@ -53,6 +54,14 @@ Calculate the expected number of species in octaves for a given value of alpha a
 for comparison with empirical data.
 }
 \examples{
+## maxoctave is 4. So zero for x = 5
+dgambin(0:5, 1, 4)
+
+## Equal weightings between components
+dgambin(0:5, alpha = c(1,2), maxoctave = c(4, 4))
+
+## Zero weight on the second component, i.e. a 1 component model
+dgambin(0:5, alpha = c(1,2), maxoctave = c(4, 4), w = c(1, 0))
 expected = gambin_exp(4, 13, total_species = 200)
 plot(expected, type = "l")
 }
