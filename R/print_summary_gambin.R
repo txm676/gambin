@@ -1,18 +1,22 @@
 #' @export
-print.summary.gambin <-
-function(x, ...) 
+print.summary.gambin = function(x, ...) 
 {
-  cat("\n")
   cat("GamBin distribution fit\n")
   cat("Data: ")
   cat(x$Dataname)
   cat("\n\n")
   
-  if(length(x$alpha) == 1) {     
-    vals <- data.frame(Estimated = x$alpha, CI95_low = x$ConfInt95[1], CI95_high = x$ConfInt95[2])
+  alpha = round(x$alpha, 3)
+  if(length(alpha) == 1L) {     
+    vals <- data.frame(Estimated = alpha, CI95_low = x$ConfInt95[1], CI95_high = x$ConfInt95[2])
     rownames(vals) = paste0("alpha", seq_along(x$Alpha))
     cat("Coefficients:\n")
     print(vals)
+  } else {
+    cat("Unable to compute CI for more than 1 component")
+    cat("Alpha\t")
+    cat(x$alpha)
+    cat("\n\n")
   }
 
   cat("MaxOctave\t")
@@ -20,9 +24,9 @@ function(x, ...)
   
   cat("\n\n")
   cat(paste("Chi-squared fit:", 
-            paste("X^2 =", round(x$ChiSq$statistic,3)), 
+            paste("X^2 =", round(x$ChiSq$statistic, 3)), 
             paste("df =", attr(x$logLik, "df")), 
-            paste("p-value =", round(x$ChiSq$p.value,3)), 
+            paste("p-value =", round(x$ChiSq$p.value, 3)), 
             "\n", sep = "\t" ))
   cat("\n")
 }
