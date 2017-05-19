@@ -1,10 +1,10 @@
 ---
-title: "Benchmark overview"
+title: "Gambin overview"
 author: "XXX"
 output: rmarkdown::html_vignette
 bibliography: refs.bib
 vignette: >
-  %\VignetteIndexEntry{Benchmark overview}
+  %\VignetteIndexEntry{Gambin overview}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
