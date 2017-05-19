@@ -3,7 +3,7 @@
 \name{fit_abundances}
 \alias{fit_abundances}
 \alias{fitGambin}
-\title{Fit the GamBin model to a species abundance distribution}
+\title{Fit a unimodal or multimodal gambin model to a species abundance distribution}
 \usage{
 fit_abundances(abundances, subsample = 0, no_of_components = 1, cores = 1)
 
@@ -15,7 +15,8 @@ fitGambin(abundances, subsample = 0)
 \item{subsample}{The number of individuals to sample from the community before fitting the GamBin model.
 If subsample == 0 the entire community is used}
 
-\item{no_of_components}{Number of components to fit.}
+\item{no_of_components}{Number of components (i.e. modes) to fit.The default (no_of_components == 1) fits the standard
+unimodal gambin model.}
 
 \item{cores}{No of cores to use when fitting. Use \code{parallel::detectCores()} to
 detect the number of cores on your machine.}
@@ -29,7 +30,7 @@ and \code{MaxOctave} parameters of the GamBin mixture distribution,
 the likelihood of the fit, and the empirical distribution over octaves.
 }
 \description{
-Uses maximum likelihood methods to fit the GamBin model to binned
+Uses maximum likelihood methods to fit the GamBin model (with a given number of modes) to binned
 species abundances. To control for the effect of sample size, the abundances
 may be subsampled prior to fitting.
 }
@@ -39,7 +40,15 @@ as specified by the \code{create_octaves} function. Because the shape of species
 distributions depend on sample size, abundances of different communities should be compared
 on equally large samples. The sample size can be set by the \code{subsample} parameter.
 To estimate \code{alpha} from a standardised sample, the function must be run several
-times; see the examples. The \code{plot} method creates a barplot showing the observed
+times; see the examples. The \code{no_of_components} parameter enables mutlimodal gambin
+distributions to be fitted. For example, setting \code{no_of_components} equal to 2, the bimodal
+gambin model is fitted. When a multimodal gambin model is fitted, the return values are the alpha
+parameters of the different component distributions, and the weight parameter(s) which denote
+the fraction of objects within each component distribution. When fitting multimodal gambin models
+(particuarly on large datasets), the optimisation algorithm can be slow. In such cases, the process
+can be speeded up by using the \code{cores} parameter to enable parallel computing.
+
+The \code{plot} method creates a barplot showing the observed
 number of species in octaves, with the fitted GamBin distribution shown as black dots.
 }
 \examples{
@@ -51,4 +60,6 @@ summary(fit)
 # gambin parameters based on a standardized sample size of 1000 individuals
 stand_fit <- replicate(20, fit_abundances(moths, 1000)$alpha) #may take a while on slower computers
 print(c(mean = mean(stand_fit), sd = sd(stand_fit)))
+# a bimodal gambin model
+biMod <- fit_abundances(create_octaves(moths), no_of_components = 2)
 }
