@@ -26,9 +26,10 @@ core_message = function(cores) {
 #' To estimate \code{alpha} from a standardised sample, the function must be run several
 #' times; see the examples. The \code{no_of_components} parameter enables mutlimodal gambin
 #' distributions to be fitted. For example, setting \code{no_of_components} equal to 2, the bimodal
-#' gambin model is fitted. When a multimodal gambin model is fitted, the return values are the alpha
-#' parameters of the different component distributions, and the weight parameter(s) which denote
-#' the fraction of objects within each component distribution. When fitting multimodal gambin models
+#' gambin model is fitted. When a multimodal gambin model is fitted (with g modes), the return values are the alpha
+#' parameters of the g different component distributions, the max octave values for the g component distributions 
+#' (as the max octave values for the g-1 component distributions are allowed to vary), and the and the weight parameter(s) 
+#' which denote the fraction of objects within each g component distribution. When fitting multimodal gambin models
 #' (particuarly on large datasets), the optimisation algorithm can be slow. In such cases, the process
 #' can be speeded up by using the \code{cores} parameter to enable parallel computing.
 #' 

@@ -43,23 +43,24 @@ with associated confidence intervals. Methods are provided for plotting the
 results, and for calculating the likelihood of fits.
 
 It has become increasingly apparent that many empirical SADs are in fact 
-multimodal (@antao2017). As such, recent work has focused on expanding 
-the standard unimodal gambin model to allow it to fit distributions with 
-multiple modes (Matthews et al. In prep). For example, the bimodal gambin model 
-can be calculated as the integration of two gambin distributions. The 
-corresponding likelihood function for the bimodal gambin model contain's three 
-parameters: the shape parameters for the first and second group (1 & 2), and 
-one splitting parameter (split) representing the fraction of objects in the 
-first group.It is relatively straightforward to extend the above approach for 
-fitting the bimodal gambin model by maximum likelihood, to fitting gambin models
-with g modes. For each additional mode, a further two parameters are needed: the
-additional alpha and the additional split parameters (see Matthews et al. In
-prep). Use the fit_abundances function in combination with the no_of_components
-of argument. The default is no_of_components = 1, which fits the standard
-unimodal gambin model. no_of_components = 2, fits the bimodal gambin model, and
-so on. As the optimisation procedure takes long with no_of_components > 1, it is
-possible to use the cores argument within fit_abundances to make use of parallel
-processing in the maximum likelihood optimisation.
+multimodal (@antao2017). As such, recent work has focused on expanding the
+standard unimodal gambin model to allow it to fit distributions with multiple
+modes (Matthews et al. In prep). For example, the bimodal gambin model can be
+calculated as the integration of two gambin distributions. The corresponding
+likelihood function for the bimodal gambin model contain's four parameters: the
+shape parameters for the first and second group, the max octave of the first
+group (as this is allowed to vary), and one splitting parameter (split)
+representing the fraction of objects in the first group.It is relatively
+straightforward to extend the above approach for fitting the bimodal gambin
+model by maximum likelihood, to fitting gambin models with g modes. For each
+additional mode, a further three parameters are needed: the additional alpha,
+max octave and split parameters (see Matthews et al. In prep). Use the
+fit_abundances function in combination with the no_of_components of argument.
+The default is no_of_components = 1, which fits the standard unimodal gambin
+model. no_of_components = 2, fits the bimodal gambin model, and so on. As the
+optimisation procedure takes long with no_of_components > 1, it is possible to
+use the cores argument within fit_abundances to make use of parallel processing
+in the maximum likelihood optimisation.
 
 ## Example
 
