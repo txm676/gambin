@@ -66,8 +66,10 @@ expected = gambin_exp(4, 13, total_species = 200)
 plot(expected, type = "l")
 }
 \references{
-Ugland, K.I., Lambshead, F.J.D., McGill, B.J., Gray, J.S., O'Dea, N., Ladle, R.J. & Whittaker, R.J. (2007). Modelling dimensionality in species abundance distributions: description and evaluation of the Gambin model. Evolutionary Ecology Research, 9, 313-324.
-Matthews, T.J., Borregaard, M.K., Ugland, K., Borges, P.A.V., Rigal, F. & Whittaker, R.J. (Early View Online). 
+Matthews, T.J. et al. (2017) Extension of the Gambin Distribution to Multimodal Species 
+Abundance Distributions. In prep.
+
+Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V, Rigal, F., Cardoso, P. and Whittaker, R.J. (2014) 
 The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, 
-implementation and interpretation. Ecography, DOI: 10.1111/ecog.00861
+implementation and interpretation. Ecography 37: 1002-1011.
 }
