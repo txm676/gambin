@@ -28,8 +28,7 @@ more than one mode).
 }
 \examples{
 data(moths, package = "gambin")
-octaves = create_octaves(moths)
-fit = fit_abundances(octaves)
+fit = fit_abundances(moths)
 barplot(fit)
 lines(fit)
 AIC(fit)

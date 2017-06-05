@@ -26,9 +26,10 @@ core_message = function(cores) {
 #' To estimate \code{alpha} from a standardised sample, the function must be run several
 #' times; see the examples. The \code{no_of_components} parameter enables mutlimodal gambin
 #' distributions to be fitted. For example, setting \code{no_of_components} equal to 2, the bimodal
-#' gambin model is fitted. When a multimodal gambin model is fitted, the return values are the alpha
-#' parameters of the different component distributions, and the weight parameter(s) which denote
-#' the fraction of objects within each component distribution. When fitting multimodal gambin models
+#' gambin model is fitted. When a multimodal gambin model is fitted (with g modes), the return values are the alpha
+#' parameters of the g different component distributions, the max octave values for the g component distributions 
+#' (as the max octave values for the g-1 component distributions are allowed to vary), and the and the weight parameter(s) 
+#' which denote the fraction of objects within each g component distribution. When fitting multimodal gambin models
 #' (particuarly on large datasets), the optimisation algorithm can be slow. In such cases, the process
 #' can be speeded up by using the \code{cores} parameter to enable parallel computing.
 #' 
@@ -41,7 +42,7 @@ core_message = function(cores) {
 #' @importFrom stats optim
 #' @examples
 #' data(moths)
-#' fit = fit_abundances(create_octaves(moths))
+#' fit = fit_abundances(moths)
 #' barplot(fit)
 #' lines(fit, col=2)
 #' summary(fit)
@@ -49,7 +50,7 @@ core_message = function(cores) {
 #' stand_fit <- replicate(20, fit_abundances(moths, 1000)$alpha) #may take a while on slower computers
 #' print(c(mean = mean(stand_fit), sd = sd(stand_fit)))
 #' # a bimodal gambin model
-#' biMod <- fit_abundances(create_octaves(moths), no_of_components = 2)
+#' biMod <- fit_abundances(moths, no_of_components = 2)
 #' @export
 fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, cores = 1)
 {
@@ -58,8 +59,6 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
   Dataname <- deparse(substitute(abundances))
 
   if(is.vector(abundances) && is.numeric(abundances)) {
-    warning("Calling create_octaves on input. This feature is Deprecated. Please call
-            create_octaves explicitly.")
     mydata = create_octaves(abundances, subsample)
   } else  if(is.data.frame(abundances)) {
     names(abundances) <- tolower(names(abundances))

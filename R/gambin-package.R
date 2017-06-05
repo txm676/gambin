@@ -31,8 +31,7 @@
 #' @seealso \url{https://github.com/mkborregaard/gambin}
 #' @examples 
 #' data(moths, package = "gambin")
-#' octaves = create_octaves(moths)
-#' fit = fit_abundances(octaves)
+#' fit = fit_abundances(moths)
 #' barplot(fit)
 #' lines(fit)
 #' AIC(fit)
