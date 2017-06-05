@@ -42,9 +42,10 @@ on equally large samples. The sample size can be set by the \code{subsample} par
 To estimate \code{alpha} from a standardised sample, the function must be run several
 times; see the examples. The \code{no_of_components} parameter enables mutlimodal gambin
 distributions to be fitted. For example, setting \code{no_of_components} equal to 2, the bimodal
-gambin model is fitted. When a multimodal gambin model is fitted, the return values are the alpha
-parameters of the different component distributions, and the weight parameter(s) which denote
-the fraction of objects within each component distribution. When fitting multimodal gambin models
+gambin model is fitted. When a multimodal gambin model is fitted (with g modes), the return values are the alpha
+parameters of the g different component distributions, the max octave values for the g component distributions 
+(as the max octave values for the g-1 component distributions are allowed to vary), and the and the weight parameter(s) 
+which denote the fraction of objects within each g component distribution. When fitting multimodal gambin models
 (particuarly on large datasets), the optimisation algorithm can be slow. In such cases, the process
 can be speeded up by using the \code{cores} parameter to enable parallel computing.
 
@@ -53,7 +54,7 @@ number of species in octaves, with the fitted GamBin distribution shown as black
 }
 \examples{
 data(moths)
-fit = fit_abundances(create_octaves(moths))
+fit = fit_abundances(moths)
 barplot(fit)
 lines(fit, col=2)
 summary(fit)
@@ -61,5 +62,5 @@ summary(fit)
 stand_fit <- replicate(20, fit_abundances(moths, 1000)$alpha) #may take a while on slower computers
 print(c(mean = mean(stand_fit), sd = sd(stand_fit)))
 # a bimodal gambin model
-biMod <- fit_abundances(create_octaves(moths), no_of_components = 2)
+biMod <- fit_abundances(moths, no_of_components = 2)
 }
