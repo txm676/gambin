@@ -41,7 +41,7 @@ core_message = function(cores) {
 #' @importFrom stats optim
 #' @examples
 #' data(moths)
-#' fit = fit_abundances(create_octaves(moths))
+#' fit = fit_abundances(moths)
 #' barplot(fit)
 #' lines(fit, col=2)
 #' summary(fit)
@@ -49,7 +49,7 @@ core_message = function(cores) {
 #' stand_fit <- replicate(20, fit_abundances(moths, 1000)$alpha) #may take a while on slower computers
 #' print(c(mean = mean(stand_fit), sd = sd(stand_fit)))
 #' # a bimodal gambin model
-#' biMod <- fit_abundances(create_octaves(moths), no_of_components = 2)
+#' biMod <- fit_abundances(moths, no_of_components = 2)
 #' @export
 fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, cores = 1)
 {
@@ -58,8 +58,6 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
   Dataname <- deparse(substitute(abundances))
 
   if(is.vector(abundances) && is.numeric(abundances)) {
-    warning("Calling create_octaves on input. This feature is Deprecated. Please call
-            create_octaves explicitly.")
     mydata = create_octaves(abundances, subsample)
   } else  if(is.data.frame(abundances)) {
     names(abundances) <- tolower(names(abundances))
