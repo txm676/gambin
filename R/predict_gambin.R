@@ -1,4 +1,3 @@
 #' @export
-predict.gambin <-
-function(object, ...) 
+predict.gambin = function(object, ...) 
   return(object$fitted.values)

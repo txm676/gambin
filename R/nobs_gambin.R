@@ -1,5 +1,4 @@
-nobs_gambin <-
-function(object, ...)
+nobs.gambin = function(object, ...)
 {
   nrow(object$Data)
 }

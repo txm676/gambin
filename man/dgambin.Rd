@@ -2,21 +2,21 @@
 % Please edit documentation in R/dgambin.R, R/gambin_exp.R
 \name{dgambin}
 \alias{dgambin}
-\alias{gambin_exp}
 \alias{pgambin}
-\alias{qgambin}
 \alias{rgambin}
-\title{Calculate the gambin distribution}
+\alias{qgambin}
+\alias{gambin_exp}
+\title{The mixture gambin distribution}
 \usage{
-dgambin(x, alpha, maxoctave, log = FALSE)
+dgambin(x, alpha, maxoctave, w = 1, log = FALSE)
 
-pgambin(q, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
+pgambin(q, alpha, maxoctave, w = 1, lower.tail = TRUE, log.p = FALSE)
 
-rgambin(n, alpha, maxoctave)
+rgambin(n, alpha, maxoctave, w = 1)
 
-qgambin(p, alpha, maxoctave, lower.tail = TRUE, log.p = FALSE)
+qgambin(p, alpha, maxoctave, w = 1, lower.tail = TRUE, log.p = FALSE)
 
-gambin_exp(alpha, maxoctave, total_species)
+gambin_exp(alpha, maxoctave, w = 1, total_species)
 }
 \arguments{
 \item{x}{vector of (non-negative integer) quantiles.}
@@ -24,6 +24,8 @@ gambin_exp(alpha, maxoctave, total_species)
 \item{alpha}{The shape parameter of the GamBin distribution.}
 
 \item{maxoctave}{The scale parameter of the GamBin distribution - which octave is the highest in the empirical dataset?}
+
+\item{w}{A vector of weights. Default, a single weight. This vector must of the same length as alpha.}
 
 \item{log}{logical; If \code{TRUE}, probabilities p are given as log(p).}
 
@@ -43,21 +45,31 @@ gambin_exp(alpha, maxoctave, total_species)
 A vector with length MaxOctave + 1 of the expected number of species in each octave
 }
 \description{
-Calculate the expected number of species in octaves for a given value of alpha and maxoctave
+Density, distribution function, quantile function and random generation for the mixture 
+gambin distribution.
 }
 \details{
-\code{dgambin} gives the distribution function of gambin, so all octaves sum to 1.
+\code{dgambin} gives the distribution function of a mixture gambin, so all octaves sum to 1.
 \code{gambin_exp} multiplies this by the total number of species to give the expected GamBin distribution in units of species, 
 for comparison with empirical data.
 }
 \examples{
-expected <- gambin_exp(4, 13, 200)
+## maxoctave is 4. So zero for x = 5
+dgambin(0:5, 1, 4)
+
+## Equal weightings between components
+dgambin(0:5, alpha = c(1,2), maxoctave = c(4, 4))
+
+## Zero weight on the second component, i.e. a 1 component model
+dgambin(0:5, alpha = c(1,2), maxoctave = c(4, 4), w = c(1, 0))
+expected = gambin_exp(4, 13, total_species = 200)
 plot(expected, type = "l")
 }
 \references{
-Ugland, K.I., Lambshead, F.J.D., McGill, B.J., Gray, J.S., O'Dea, N., Ladle, R.J. & Whittaker, R.J. (2007). Modelling dimensionality in species abundance distributions: description and evaluation of the Gambin model. Evolutionary Ecology Research, 9, 313-324.
-Matthews, T.J., Borregaard, M.K., Ugland, K., Borges, P.A.V., Rigal, F. & Whittaker, R.J. (Early View Online). 
-The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, 
-implementation and interpretation. Ecography, DOI: 10.1111/ecog.00861
-}
+Matthews, T.J. et al. (2017) Extension of the Gambin Distribution to Multimodal Species 
+Abundance Distributions. In prep.
 
+Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V, Rigal, F., Cardoso, P. and Whittaker, R.J. (2014) 
+The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, 
+implementation and interpretation. Ecography 37: 1002-1011.
+}

@@ -27,4 +27,3 @@ create_octaves(moths)
 \references{
 Gray, J.S., Bjoergesaeter, A. & Ugland, K.I. (2006) On plotting species abundance distributions. Journal of Animal Ecology, 75, 752-756.
 }
-
