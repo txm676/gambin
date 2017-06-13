@@ -6,13 +6,13 @@ r:
   - release
   - devel
 
-r_packages:
-  - covr
-  
-  
 install:
   - rmarkdown
 
+r_packages:
+  - covr
+  - rmarkdown
+  
 notifications:
   email:
     on_success: change
