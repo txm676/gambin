@@ -8,6 +8,10 @@ r:
 
 r_packages:
   - covr
+  
+  
+install:
+  - rmarkdown
 
 notifications:
   email:
