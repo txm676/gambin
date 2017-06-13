@@ -2,7 +2,7 @@
 #' @export
 AIC.gambin = function(object, ...)
 {
-  if (length(list(...)) > 0L) 
+  if (length(list(...)) > 0L)
     warning("additional arguments ignored")
   AIC(logLik(object))
 }
@@ -14,9 +14,9 @@ AICc = function (object, ...)
 
 #' @rdname logLik.gambin
 #' @export
-AICc.gambin = function (object, ...) 
+AICc.gambin = function (object, ...)
 {
-  if (length(list(...)) > 0L) 
+  if (length(list(...)) > 0L)
     warning("additional arguments ignored")
   ll = logLik(object)
   df = attr(ll, "df")

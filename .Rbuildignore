@@ -3,4 +3,4 @@
 ^README\.Rmd$
 ^README-.*\.png$
 .travis.yml
-tmp_*
+^vignettes\figure

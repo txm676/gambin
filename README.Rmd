@@ -2,8 +2,6 @@
 output: github_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -14,10 +12,10 @@ knitr::opts_chunk$set(
 
 
 # The `gambin` R package
-[![Build Status](https://travis-ci.org/mkborregaard/gambin.svg?branch=master)](https://travis-ci.org/mkborregaard/gambin)
+[![Build Status](https://travis-ci.org/txm676/gambin.svg?branch=master)](https://travis-ci.org/txm676/gambin)
 [![Downloads](http://cranlogs.r-pkg.org/badges/gambin?color=brightgreen)](https://cran.r-project.org/package=gambin)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/gambin)](https://cran.r-project.org/package=gambin)
-[![codecov.io](https://codecov.io/github/mkborregaard/gambin/coverage.svg?branch=master)](https://codecov.io/github/mkborregaard/gambin?branch=master)
+[![codecov.io](https://codecov.io/github/txm676/gambin/coverage.svg?branch=master)](https://codecov.io/github/txm676/gambin?branch=master)
 
 This package fits the `gambin` distribution to species-abundance distributions from ecological data. 
 'gambin' is short for 'gamma-binomial'. The main function is `fit_abundances`, which estimates the `alpha`
@@ -34,5 +32,5 @@ install.packages("gambin")
 Alternatively, you can install the developmental version via
 
 ```{r eval=FALSE}
-devtools::install_github("mkborregaard/gambin")
+devtools::install_github("txm676/gambin")
 ```
