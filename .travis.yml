@@ -1,13 +1,14 @@
 language: r
 cache: packages
 
+install_r:
+  - devtools
+  - rmarkdown
+
 r:
   - oldrel
   - release
   - devel
-
-install_r:
-  - rmarkdown
 
 r_packages:
   - covr
