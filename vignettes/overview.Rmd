@@ -93,7 +93,7 @@ values = as.numeric(as.character(names(x)))
 abundances = data.frame(octave=values, species = freq)
 
 #fit bimodal model to simulated data
-fit3 = fit_abundances(abundances, no_of_components = 2, cores = 3)
+fit3 = fit_abundances(abundances, no_of_components = 2, cores = 1)
 barplot(fit3)
 points(fit3)
 AIC(fit3)

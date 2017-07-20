@@ -21,13 +21,16 @@ the abundance data is first binned into octaves using a simple log2 transform
 that doubles the number of abundance classes within each octave. Thus, octave 0 
 contains the number of species with 1 individual, octave 1 the number of species
 with 2 or 3 individuals, octave 2 the number of species with 4 to 7 individuals,
-and so forth (method 3 in Gray et al. 2006).
+and so forth (method 3 in @gray2006).
 
 The gambin distribution is flexible, meaning it can fit a variety of empirical 
 SAD shapes (including lognormal and logseries-like shapes), and that the 
 distribution shape (in the context of the unimodal gambin model) is adequately 
 characterised by the model’s single parameter (α): low values of alpha indicate 
-logserieslike SADs, and high alpha values indicate lognormal-like SADs.
+logserieslike SADs, and high alpha values indicate lognormal-like SADs. As such,
+the alpha parameter can be used as a metric to compare the shape of SADs from 
+different ecological communities; for example, along an environmental gradient
+(e.g @arellano2017)
 
 The expected abundance octave of a species is given by the number of successfull
 consecutive Bernoulli trials with a given parameter $p$. The parameter $p$ of 
@@ -40,23 +43,24 @@ with associated confidence intervals. Methods are provided for plotting the
 results, and for calculating the likelihood of fits.
 
 It has become increasingly apparent that many empirical SADs are in fact 
-multimodal (Antão et al., 2017). As such, recent work has focused on expanding 
-the standard unimodal gambin model to allow it to fit distributions with 
-multiple modes (Matthews et al. In prep). For example, the bimodal gambin model 
-can be calculated as the integration of two gambin distributions. The 
-corresponding likelihood function for the bimodal gambin model contain's three 
-parameters: the shape parameters for the first and second group (1 & 2), and 
-one splitting parameter (split) representing the fraction of objects in the 
-first group.It is relatively straightforward to extend the above approach for 
-fitting the bimodal gambin model by maximum likelihood, to fitting gambin models
-with g modes. For each additional mode, a further two parameters are needed: the
-additional alpha and the additional split parameters (see Matthews et al. In
-prep). Use the fit_abundances function in combination with the no_of_components
-of argument. The default is no_of_components = 1, which fits the standard
-unimodal gambin model. no_of_components = 2, fits the bimodal gambin model, and
-so on. As the optimisation procedure takes long with no_of_components > 1, it is
-possible to use the cores argument within fit_abundances to make use of parallel
-processing in the maximum likelihood optimisation.
+multimodal (@antao2017). As such, recent work has focused on expanding the
+standard unimodal gambin model to allow it to fit distributions with multiple
+modes (Matthews et al. In prep). For example, the bimodal gambin model can be
+calculated as the integration of two gambin distributions. The corresponding
+likelihood function for the bimodal gambin model contain's four parameters: the
+shape parameters for the first and second group, the max octave of the first
+group (as this is allowed to vary), and one splitting parameter (split)
+representing the fraction of objects in the first group.It is relatively
+straightforward to extend the above approach for fitting the bimodal gambin
+model by maximum likelihood, to fitting gambin models with g modes. For each
+additional mode, a further three parameters are needed: the additional alpha,
+max octave and split parameters (see Matthews et al. In prep). Use the
+fit_abundances function in combination with the no_of_components of argument.
+The default is no_of_components = 1, which fits the standard unimodal gambin
+model. no_of_components = 2, fits the bimodal gambin model, and so on. As the
+optimisation procedure takes long with no_of_components > 1, it is possible to
+use the cores argument within fit_abundances to make use of parallel processing
+in the maximum likelihood optimisation.
 
 ## Example
 
@@ -66,41 +70,39 @@ data(moths, package="gambin")
 
 ##unimodal model
 fit = fit_abundances(moths)
+fit$alpha
 barplot(fit)
 points(fit)
 AIC(fit)
 
 ##unimodal model (fit to a subsample of 1000 individuals)
 fit2 = fit_abundances(moths, subsample = 1000)
+fit2$alpha
 barplot(fit2)
 points(fit2)
 AIC(fit2)
 
 ##bimodal model (using 3 cores)
-fit3 = fit_abundances(moths, no_of_components = 2, cores = 3)
+
+#simulate bimodal gambin distribution
+x1 = rgambin(600, 5, 10)
+x2 = rgambin(300, 1, 10)
+x = table(c(x1,x2))
+freq = as.vector(x)
+values = as.numeric(as.character(names(x)))
+abundances = data.frame(octave=values, species = freq)
+
+#fit bimodal model to simulated data
+fit3 = fit_abundances(abundances, no_of_components = 2, cores = 1)
 barplot(fit3)
 points(fit3)
 AIC(fit3)
+#compare with AIC of unimodal model
+AIC(fit_abundances(abundances))
 ```
 
 ## References
 
-Antão, L.H., Connolly, S.R., Magurran, A.E., Soares, A. & Dornelas, M. (2017)
-Prevalence of multimodal species abundance distributions is linked to spatial
-and taxonomic breadth. Global Ecology and Biogeography, 26, 203-215.
-
-Gray, J.S., Bjørgesæter, A. & Ugland, K.I. (2006) On plotting species abundance
-distributions. Journal of Animal Ecology, 75, 752-756.
-
-Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V., Rigal, F.,
-Cardoso, P. & Whittaker, R.J. (2014) The gambin model provides a superior fit to
-species abundance distributions with a single free parameter: evidence,
-implementation and interpretation. Ecography, 37, 1002-1011.
-
 Matthews, T.J. et al (In prep) Extension of the Gambin Distribution to
 Multimodal Species Abundance Distributions.
 
-Ugland, K.I., Lambshead, P.J.D., McGill, B., Gray, J.S., O'Dea, N., Ladle, R.J.
-& Whittaker, R.J. (2007) Modelling dimensionality in species abundance
-distributions: description and evaluation of the Gambin model. Evolutionary
-Ecology Research, 9, 313-324.
