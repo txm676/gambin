@@ -2,13 +2,12 @@ Package: gambin
 Type: Package
 Title: Fit the Gambin Model to Species Abundance Distributions
 Version: 2.1.1
-Authors@R: c(person(given="Thomas", family="Matthews", role = "aut"),
-    person(given=c("Michael", "Krabbe"), family="Borregaard",
-    email="mkborregaard@snm.ku.dk", role = c("aut", "cre")), 
+Authors@R: c(person(given="Thomas", family="Matthews", email="txm676@gmail.com",
+    role = c("aut", "cre")), person(given=c("Michael", "Krabbe"), 
+    family="Borregaard", email="mkborregaard@snm.ku.dk", role = "aut"), 
     person(given="Karl", family="Ugland", role = "aut"),
     person(given="Colin", family="Gillespie",
     email="csgillespie@gmail.com", role = "aut"))
-Maintainer: Tom Matthews <txm676@gmail.com>
 Description: Fits unimodal and multimodal gambin distributions to species-abundance distributions
     from ecological data. 'gambin' is short for 'gamma-binomial'. The main function
     is fit_abundances, which estimates the 'alpha' parameter(s) of the gambin distribution

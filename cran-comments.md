@@ -1,5 +1,8 @@
 
-##This is a new submission of an updated version of this package
+##This is a resubmission
+I have deleted the maintainer field in the 
+Description file so it does not clash with 
+the AuthorsR field.
 
 ##Test environments
 *local Windows 10 install, R 3.4.1
