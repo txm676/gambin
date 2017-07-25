@@ -36,7 +36,7 @@ The expected abundance octave of a species is given by the number of successfull
 consecutive Bernoulli trials with a given parameter $p$. The parameter $p$ of 
 species is assumed to distributed according to a gamma distribution. This 
 approach can be viewed as linking the gamma distribution with the probability of
-success in a binomial process with $x$ trials. Use the fit_abundances function
+success in a binomial process with $x$ trials. Use the fit_abundances() function
 to fit the gambin model to a vector of species abundances, optionally using a
 subsample of the individuals. The package estimates the alpha (shape) parameter
 with associated confidence intervals. Methods are provided for plotting the
@@ -55,7 +55,7 @@ straightforward to extend the above approach for fitting the bimodal gambin
 model by maximum likelihood, to fitting gambin models with g modes. For each
 additional mode, a further three parameters are needed: the additional alpha,
 max octave and split parameters (see Matthews et al. In prep). Use the
-fit_abundances function in combination with the no_of_components of argument.
+fit_abundances() function in combination with the no_of_components of argument.
 The default is no_of_components = 1, which fits the standard unimodal gambin
 model. no_of_components = 2, fits the bimodal gambin model, and so on. As the
 optimisation procedure takes long with no_of_components > 1, it is possible to
