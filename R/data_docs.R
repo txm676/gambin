@@ -12,8 +12,8 @@ NULL
 
 #' @name fly
 #' @aliases fly
-#' @title Brazilian Diptera Data
-#' @description Flies captured using various sampling methods at different sites
+#' @title Brazilian Horse Fly Data
+#' @description Horse flies captured using various sampling methods at different sites
 #'   across Brazil.
 #' @docType data
 #' @format A list with two elements. The first element contains a numerical

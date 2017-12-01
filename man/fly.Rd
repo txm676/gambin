@@ -3,7 +3,7 @@
 \docType{data}
 \name{fly}
 \alias{fly}
-\title{Brazilian Diptera Data}
+\title{Brazilian Horse Fly Data}
 \format{A list with two elements. The first element contains a numerical
   vector with the abundance of 164 fly species sampled at various sites
   across Brazil. The second element contains a numerical vector with the
@@ -13,7 +13,7 @@
 This package.
 }
 \description{
-Flies captured using various sampling methods at different sites
+Horse flies captured using various sampling methods at different sites
   across Brazil.
 }
 \examples{
