@@ -1,6 +1,8 @@
 
-##This is a new submission
+##This is a resubmission
 New version of the package that contains a new dataset
+
+Have corrected the version number issue
 
 
 ##Test environments
