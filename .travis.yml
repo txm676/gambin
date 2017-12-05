@@ -13,6 +13,7 @@ r:
 
 r_packages:
   - covr
+  - rmarkdown
 
 notifications:
   email:
