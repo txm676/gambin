@@ -1,7 +1,6 @@
 
-##This is a resubmission
-I have added () after function names in the DESCRIPTION file
-and in the vignettes.
+##This is a new submission
+New version of the package that contains a new dataset
 
 
 ##Test environments
@@ -9,8 +8,6 @@ and in the vignettes.
 * linux-gnu, R version 3.3.3 (via Travis)
  
 ##R CMD check results
-0 errors | 0 warnings | 1 notes
-
-The one note relates to a new package maintainer.
+0 errors | 0 warnings | 0 notes
 
 ##No downstream dependencies
