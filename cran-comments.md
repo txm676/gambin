@@ -1,12 +1,10 @@
 
 ##This is a resubmission
-New version of the package that contains a new dataset
-
-Have corrected the version number issue
+New version of the package that contains some new functions
 
 
 ##Test environments
-*local Windows 10 install, R 3.4.1
+*local Windows 10 install, R 3.4.3
 * linux-gnu, R version 3.3.3 (via Travis)
  
 ##R CMD check results

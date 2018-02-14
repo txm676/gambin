@@ -1,7 +1,7 @@
 Package: gambin
 Type: Package
 Title: Fit the Gambin Model to Species Abundance Distributions
-Version: 2.2.0
+Version: 2.3.0
 Authors@R: c(person(given="Thomas", family="Matthews", email="txm676@gmail.com",
     role = c("aut", "cre")), person(given=c("Michael", "Krabbe"), 
     family="Borregaard", email="mkborregaard@snm.ku.dk", role = "aut"), 

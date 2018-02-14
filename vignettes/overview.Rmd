@@ -62,6 +62,20 @@ optimisation procedure takes long with no_of_components > 1, it is possible to
 use the cores argument within fit_abundances to make use of parallel processing
 in the maximum likelihood optimisation.
 
+Often the aim of SAD studies is to compare the form of the SAD across different
+sites / samples. The alpha parameter of the one component gambin model (alpha)
+has been found to provide a useful metric in this regard. Use the
+mult_abundances function to calculate alpha values for a set of different
+samples / sites. However, because the alpha parameter of the gambin model is
+dependent on sample size, when comparing the alpha values between sites it can
+be useful to first standardise the number of individuals in all sites. By
+default, the mult_abundances function calculates the total number of individuals
+in each site and selects the minimum value for standardising. This minimum
+number of individuals is then sampled from each site and the gambin model fitted
+to this subsample and the alpha value stored. This process is then repeated N
+times and the mean alpha value is calculated for each site.
+
+
 ## Example
 
 ```{r}

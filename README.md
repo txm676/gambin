@@ -4,7 +4,7 @@ The `gambin` R package
 
 [![Build Status](https://travis-ci.org/txm676/gambin.svg?branch=master)](https://travis-ci.org/txm676/gambin) [![Downloads](http://cranlogs.r-pkg.org/badges/gambin?color=brightgreen)](https://cran.r-project.org/package=gambin) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/gambin)](https://cran.r-project.org/package=gambin) [![codecov.io](https://codecov.io/github/txm676/gambin/coverage.svg?branch=master)](https://codecov.io/github/txm676/gambin?branch=master)
 
-This package fits the `gambin` distribution to species-abundance distributions from ecological data. 'gambin' is short for 'gamma-binomial'. The main function is `fit_abundances`, which estimates the `alpha` parameter of the gambin distribution using maximum likelihood. Recent Functions are also provided to generate the gambin distribution and for calculating likelihood statistics. The package now provides functionality to fit multimodal gambin distributions.
+This package fits the `gambin` distribution to species-abundance distributions from ecological data. 'gambin' is short for 'gamma-binomial'. The main functions are `fit_abundances`, which estimates the `alpha` parameter of the gambin distribution using maximum likelihood. Recent Functions are also provided to generate the gambin distribution and for calculating likelihood statistics. The package now provides functionality to fit multimodal gambin distributions.
 
 The package is currently on CRAN and can be installed via
 
