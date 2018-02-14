@@ -8,8 +8,8 @@ mult_abundances(mult, N = 100, subsample = NULL, r = 3)
 }
 \arguments{
 \item{mult}{Either a matrix, dataframe or list containing the species abundance data of a set of sites.
-In the case a matrix or dataframe, a given column contains the abundance data for a given site (i.e. columns 
-are sites and rows are species; each cell is the abundance of a given species in a given site. In the case
+In the case of a matrix or dataframe, a given column contains the abundance data for a given site (i.e. columns 
+are sites and rows are species; each cell is the abundance of a given species in a given site). In the case
 of a list, each element in the list contains the abundance data (i.e. a vector of abundances) for a given site.}
 
 \item{N}{The number of times to subsample the abundance data in each site to calculate mean standardised alpha.}
@@ -47,10 +47,12 @@ At present, the \code{mult_abundances} function only fits the unimodal gambin mo
 #simulate a matrix containing the SAD data for 20 sites (50 sp. in each)
 mult <- matrix(0, nrow = 50, ncol = 20)
 mult <- apply(mult, 2, function(x) ceiling(rlnorm(length(x), 0, 2.5)))
+
 #run the mult_abundances function and view the alpha values
 mm <- mult_abundances(mult, N = 20, subsample = NULL)
 mm[1:2]
 plot(mm$Mean.Stan.Alpha, mm$Unstan.Alpha)
+
 #simulate a list containing the SAD of 20 sites (with varying numbers of sp.)
 mult2 <- vector("list", length = 20)
 for (i in 1:ncol(mult)){
@@ -62,6 +64,7 @@ for (i in 1:ncol(mult)){
  }
  mult2[[i]] <- dum
 }
+
 #run the mult_abundances function on the list
 mm2 <- mult_abundances(mult2, N = 20, subsample = NULL)
 mm2[1:2] 

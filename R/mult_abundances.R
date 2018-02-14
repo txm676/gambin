@@ -2,14 +2,13 @@
 #' @description Fits the unimodal gambin model to the SADs from multiple sites and
 #' returns the standardised and unstandardised alpha values. 
 #' @param mult Either a matrix, dataframe or list containing the species abundance data of a set of sites.
-#' In the case a matrix or dataframe, a given column contains the abundance data for a given site (i.e. columns 
-#' are sites and rows are species; each cell is the abundance of a given species in a given site. In the case
+#' In the case of a matrix or dataframe, a given column contains the abundance data for a given site (i.e. columns 
+#' are sites and rows are species; each cell is the abundance of a given species in a given site). In the case
 #' of a list, each element in the list contains the abundance data (i.e. a vector of abundances) for a given site.
 #' @param N The number of times to subsample the abundance data in each site to calculate mean standardised alpha.
 #' @param subsample The number of individuals to sample from each site before fitting the gambin model. The default is
 #' subsample = NULL, in which case subsample is set to equal the number of individuals in the site with the 
 #' fewest individuals.
-#' @param 
 #' @param r The number of decimal points to round the returned alpha values to (default is r = 3)
 #' @details Because the alpha parameter of the gambin model is dependent on sample size, when comparing the alpha 
 #' values between sites it can be useful to first standardise the number of individuals in all sites. By default, 
@@ -33,10 +32,12 @@
 #' #simulate a matrix containing the SAD data for 20 sites (50 sp. in each)
 #' mult <- matrix(0, nrow = 50, ncol = 20)
 #' mult <- apply(mult, 2, function(x) ceiling(rlnorm(length(x), 0, 2.5)))
+#' 
 #' #run the mult_abundances function and view the alpha values
 #' mm <- mult_abundances(mult, N = 20, subsample = NULL)
 #' mm[1:2]
 #' plot(mm$Mean.Stan.Alpha, mm$Unstan.Alpha)
+#' 
 #' #simulate a list containing the SAD of 20 sites (with varying numbers of sp.)
 #' mult2 <- vector("list", length = 20)
 #' for (i in 1:ncol(mult)){
@@ -48,6 +49,7 @@
 #'  }
 #'  mult2[[i]] <- dum
 #' }
+#' 
 #' #run the mult_abundances function on the list
 #' mm2 <- mult_abundances(mult2, N = 20, subsample = NULL)
 #' mm2[1:2] 
