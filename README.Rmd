@@ -21,12 +21,6 @@ knitr::opts_chunk$set(
 [![CRAN](http://www.r-pkg.org/badges/version/gambin)](http://cran.rstudio.com/package=gambin)
 [![codecov.io](https://codecov.io/github/txm676/gambin/coverage.svg?branch=master)](https://codecov.io/github/txm676/gambin?branch=master)
 
-[![Downloads](http://cranlogs.r-pkg.org/badges/poweRlaw?color=brightgreen)](http://cran.rstudio.com/package=poweRlaw)
-[![CRAN](http://www.r-pkg.org/badges/version/poweRlaw)](http://cran.rstudio.com/package=poweRlaw)
-
-
-
-
 
 This package fits the `gambin` distribution to species-abundance distributions from ecological data. 
 'gambin' is short for 'gamma-binomial'. The main functions are `fit_abundances`, which estimates the `alpha`
