@@ -10,4 +10,6 @@ New version of the package that contains some new functions
 ##R CMD check results
 0 errors | 0 warnings | 0 notes
 
-##No downstream dependencies
+##dependencies
+One package reverse suggests (fitteR). Have checked
+and no errors or warnings following changes. 
