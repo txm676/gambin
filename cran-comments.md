@@ -1,6 +1,7 @@
 
 ##This is a resubmission
-New version of the package that contains some new functions
+I have fixed the invalid URLs, and added a citation in the 
+Description file (as requested)
 
 
 ##Test environments
