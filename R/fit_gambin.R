@@ -60,6 +60,7 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
 
   if(is.vector(abundances) && is.numeric(abundances)) {
     mydata = create_octaves(abundances, subsample)
+    
   } else  if(is.data.frame(abundances)) {
     names(abundances) <- tolower(names(abundances))
     if(!("species" %in% names(abundances) && "octave" %in% names(abundances))) {
@@ -108,7 +109,14 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
 
   res$max_octaves = res$max_octaves
   res$coefficients = c(alpha = res$alpha, w = res$w, max_octave = res$octaves)
-
+  
+  #get fitted values of each component distribution and the peak value of each for deconstruction function
+  if (no_of_components > 1) {
+    fvals <- mapply(function(x, y) dgambin_single(res$Data$octave, x, y) * 
+                                    sum(mydata$species), x = res$alpha, y = res$octaves)
+    res$peak_octave_individual <- apply(fvals, 2, which.max) - 1 #minus one as octaves start at 0
+  }
+  
   attr(res, "nobs") = nrow(mydata)
   class(res) = "gambin"
   res
