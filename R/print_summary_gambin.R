@@ -13,13 +13,13 @@ print.summary.gambin = function(x, ...)
     cat("Coefficients:\n")
     print(vals)
   } else {
-    cat("Unable to compute CI for more than 1 component")
-    cat("Alpha\t")
+    cat("Unable to compute CI for more than 1 component. ")
+    cat("Alpha:\t")
     cat(x$alpha)
     cat("\n\n")
   }
 
-  cat("MaxOctave\t")
+  cat("MaxOctave:\t")
   cat(floor(x$octaves))
   
   cat("\n\n")
