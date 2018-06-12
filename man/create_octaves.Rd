@@ -12,7 +12,8 @@ create_octaves(abundances, subsample = 0)
 \item{subsample}{If > 0, the community is subsampled by this number of individuals before creating octaves. This is useful for analyses where \code{alpha} is estimated from a standardized number of individuals.}
 }
 \value{
-A data.frame with two variables: \code{octave} with the name of each octave and \code{species} with the number of species in that octave
+A data.frame with two variables: \code{octave} with the name of each octave and \code{species} with 
+the number of species in that octave.
 }
 \description{
 Creates abundance octaves by a log2 transform that doubles the number 
