@@ -51,7 +51,7 @@ dgambin_single = function(x, alpha, maxoctave, log = FALSE)
 #' expected = gambin_exp(4, 13, total_species = 200)
 #' plot(expected, type = "l")
 #' @export
-dgambin = function(x, alpha, maxoctave, w = 1,log = FALSE)
+dgambin = function(x, alpha, maxoctave, w = 1, log = FALSE)
 {
   if(any(w < 0)) stop("w must be non-negative", call. = FALSE)
   if(length(maxoctave) != length(alpha)) stop("alpha and octave should be the same length", call. = FALSE)
@@ -62,10 +62,9 @@ dgambin = function(x, alpha, maxoctave, w = 1,log = FALSE)
                function(i) w[i]*dgambin_single(x, alpha[i], maxoctave[i], log=FALSE), 
                FUN.VALUE = numeric(length(x)))
   
-  res = rowSums(res)
+  if(NROW(res) > 1L) res = rowSums(res)
   
-  if(log)
-    res = log(res)
+  if(log) res = log(res)
   res
 }
 
