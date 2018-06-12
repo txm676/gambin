@@ -1,4 +1,9 @@
 
+## Version 2.4.0
+
+  * Bug fix: confidence intervals for alpha 
+  * New tests included
+
 ## Version 2.3.0
 
   * Adding a new 'mult_abundances' function to fit gambin to muliple sites and calculate standardised alpha
