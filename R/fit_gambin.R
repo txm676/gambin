@@ -76,12 +76,15 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
                 values = mydata$octave, freq = mydata$species, method = "Brent",
                 lower = 0, upper = 100)
     val$octaves = max(mydata$octave)
+    ## Optim minimises so convert to negative
+    val$value = -val$value
   } else {
     core_message(cores)
     alpha = rep(1, no_of_components)
     w = rep(1/length(alpha), length(alpha) - 1)
     val = estimate_parameters(par = c(alpha, w), values = mydata$octave, 
                               freq = mydata$species, cores = cores)
+    val$value = -val$value
   }
   res = list()
   res$alpha = val$par[1:no_of_components]
@@ -90,13 +93,12 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
   res$octaves = val$octaves
   res$convergence = val$convergence
   
-  logLik = -val$value
   ## -1: weights have to sum to 1
   ## -1: one of the octaves is equal to max(data)
   attr(logLik, "df") = no_of_components*2 + (no_of_components - 1) 
   attr(logLik, "nobs") = nrow(mydata)
   class(logLik) = "logLik"
-  res$logLik = logLik
+  res$logLik = val$value
 
   res$fitted.values =  dgambin(mydata$octave,
                                alpha = res$alpha, w=res$w,

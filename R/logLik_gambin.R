@@ -16,7 +16,7 @@ ll_optim = function(par, maxoctave, values, freq) {
   if(any(alpha < 0) || any(w < 0) || any(w > 1)) return(Inf)
   if(length(alpha) != length(maxoctave)) stop("alpha and maxoctave should be the same length")
   #w = w/sum(w)
-  -ll_w(alpha, w, maxoctave, values, freq)
+  -ll_w(alpha, w, maxoctave, values, freq) # optim minimises to multiple by -1
 }
 
 #' @title Likelihood statistics for the GamBin model
