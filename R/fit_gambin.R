@@ -60,7 +60,6 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
 
   if(is.vector(abundances) && is.numeric(abundances)) {
     mydata = create_octaves(abundances, subsample)
-    
   } else  if(is.data.frame(abundances)) {
     names(abundances) <- tolower(names(abundances))
     if(!("species" %in% names(abundances) && "octave" %in% names(abundances))) {
@@ -72,16 +71,19 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
   }
 
   if(no_of_components == 1) {
-    val = optim(par = 1, fn=ll_optim, maxoct = max(mydata$octave),
+    val = optim(par = 1, fn=ll_optim, maxoctave = max(mydata$octave),
                 values = mydata$octave, freq = mydata$species, method = "Brent",
                 lower = 0, upper = 100)
     val$octaves = max(mydata$octave)
+    ## Optim minimises so convert to negative
+    logLik = -val$value
   } else {
     core_message(cores)
     alpha = rep(1, no_of_components)
     w = rep(1/length(alpha), length(alpha) - 1)
     val = estimate_parameters(par = c(alpha, w), values = mydata$octave, 
                               freq = mydata$species, cores = cores)
+    logLik = -val$value
   }
   res = list()
   res$alpha = val$par[1:no_of_components]
@@ -90,7 +92,6 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
   res$octaves = val$octaves
   res$convergence = val$convergence
   
-  logLik = -val$value
   ## -1: weights have to sum to 1
   ## -1: one of the octaves is equal to max(data)
   attr(logLik, "df") = no_of_components*2 + (no_of_components - 1) 

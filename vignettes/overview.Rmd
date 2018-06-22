@@ -5,8 +5,10 @@ output: rmarkdown::html_vignette
 bibliography: refs.bib
 vignette: >
   %\VignetteIndexEntry{Gambin overview}
-  %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 # Overview

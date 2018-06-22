@@ -5,6 +5,8 @@ test_that("Testing dgambin", {
   x = dgambin(-1:2, 1, 1)
   testthat::expect_length(x, 4)
   testthat::expect_true((x[1] == 0) && (x[4] == 0))
+  
+  testthat::expect_true(x[3] == dgambin(1, 1, 1) && x[4] == dgambin(2, 1, 1))
 
   ## Test weights
   expect_equivalent(dgambin(0:3, 1, w = 1, maxoctave = 3),
