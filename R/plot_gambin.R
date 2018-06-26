@@ -2,7 +2,7 @@
 #' @export
 barplot.gambin = function(height, ...) {
   
-  ylim = max(predict(height), height$Data$species)
+  ylim = max(predict(height), height$Data$species) * 1.05
   defaults = list(xlab = "Octaves", ylab = "Number of species", 
                   ylim = c(0, 0.5 + ylim), names.arg = height$Data$octave)
   args = list(...)
