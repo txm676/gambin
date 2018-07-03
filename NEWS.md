@@ -3,6 +3,7 @@
 
   * Bug fix: confidence intervals for alpha 
   * New tests included
+  * Adding a new 'deconstruct_modes' function to enable more in depth analysis of a multimodal gambin model fit
 
 ## Version 2.3.0
 
@@ -20,6 +21,7 @@
 
   * Code refactored
   * Create r/q/p/d gambin functions
+  * Number of considered free parameters increased from 1 to 2
   * Created an initial vignette.
   * Created an initial test suite
   * Hooked up to travis and codecov

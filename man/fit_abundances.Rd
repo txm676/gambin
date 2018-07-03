@@ -24,7 +24,7 @@ detect the number of cores on your machine.}
 \item{\dots}{Further arguments to pass to \code{barplot}}
 }
 \value{
-The \code{fit_abunbances} function returns an object of class \code{gambin}, with the \code{alpha},
+The \code{fit_abundances} function returns an object of class \code{gambin}, with the \code{alpha},
 \code{w}
 and \code{MaxOctave} parameters of the GamBin mixture distribution,
 the likelihood of the fit, and the empirical distribution over octaves.

@@ -35,7 +35,7 @@ core_message = function(cores) {
 #' 
 #' The \code{plot} method creates a barplot showing the observed
 #' number of species in octaves, with the fitted GamBin distribution shown as black dots.
-#' @return The \code{fit_abunbances} function returns an object of class \code{gambin}, with the \code{alpha},
+#' @return The \code{fit_abundances} function returns an object of class \code{gambin}, with the \code{alpha},
 #' \code{w}
 #' and \code{MaxOctave} parameters of the GamBin mixture distribution,
 #' the likelihood of the fit, and the empirical distribution over octaves.

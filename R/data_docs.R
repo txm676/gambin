@@ -25,3 +25,20 @@ NULL
 #' @examples
 #' data(fly, package = "gambin")
 NULL
+
+
+#' @name categ
+#' @aliases categ
+#' @title Simulated bird SAD dataset with species classification data
+#' @description A randomly generated bird SAD dataset where each species has
+#'   been randomly classified according to its origin (native, exotic or
+#'   invasive).
+#' @docType data
+#' @format A dataframe with three columns: 1) 'abundances' = the abundance of
+#'   each species, 2) 'species' = the species names, and 3) 'status' the species
+#'   origin classification. In regards to (3) each species is classified as
+#'   either native (N), exotic (E) or invasive (I).
+#' @source This package.
+#' @examples
+#' data(categ, package = "gambin")
+NULL

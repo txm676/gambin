@@ -64,6 +64,11 @@ optimisation procedure takes long with no_of_components > 1, it is possible to
 use the cores argument within fit_abundances to make use of parallel processing
 in the maximum likelihood optimisation.
 
+The deconstruct_modes() function can then be used to examine a multimodal gambin
+model fit. The function provides the location of the modal octaves of each
+component distribution and (if species classification data are provided)
+determines the proportion of different types of species in each octave.
+
 Often the aim of SAD studies is to compare the form of the SAD across different
 sites / samples. The alpha parameter of the one component gambin model (alpha)
 has been found to provide a useful metric in this regard. Use the
@@ -115,6 +120,14 @@ points(fit3)
 AIC(fit3)
 #compare with AIC of unimodal model
 AIC(fit_abundances(abundances))
+
+#fit a bimodal model to a species classification dataset
+#and calculate the number of the differet categories in each octave
+data(categ, package="gambin")
+fits2 = fit_abundances(categ$abundances, no_of_components = 2)
+#without species classification data
+d1 <- deconstruct_modes(fits2, dat = categ, peak_val = NULL, abundances = "abundances", 
+     species = "species", categ = "status", col.statu = c("green", "red", "blue"))
 ```
 
 ## References
