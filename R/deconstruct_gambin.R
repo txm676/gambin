@@ -91,6 +91,7 @@ print.deconstruct <- function(x){
 #'   returned object has a third element: 3) 'Summary_table', which contains a
 #'   dataframe (frequency table) with the numbers of each category of species in
 #'   each octave.
+#' @author Thomas J. Matthews & Francois Rigal
 #' @importFrom graphics barplot legend points
 #' @examples
 #' data(categ)

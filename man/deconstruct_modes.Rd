@@ -88,3 +88,6 @@ deconstruct_modes(fits2, dat = categ, categ = "status", col.statu = c("green", "
 #manually choose modal octaves
 deconstruct_modes(fits2, dat = categ, peak_val = c(0,1))
 }
+\author{
+Thomas J. Matthews & Francois Rigal
+}
