@@ -92,7 +92,8 @@ print.deconstruct <- function(x){
 #'   dataframe (frequency table) with the numbers of each category of species in
 #'   each octave.
 #' @author Thomas J. Matthews & Francois Rigal
-#' @importFrom graphics barplot legend points
+#' @importFrom graphics barplot legend points 
+#' @importFrom grDevices rainbow
 #' @examples
 #' data(categ)
 #' fits2 = fit_abundances(categ$abundances, no_of_components = 2)

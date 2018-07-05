@@ -25,6 +25,7 @@ est_confint  = function(est_alpha, est_likelihood, sample_data, level) {
 }
 
 # parm for S3 generic consistency
+#' @importFrom stats quantile
 #' @export 
 confint.gambin = function(object, parm = "alpha", level = 0.95, n = n, 
                           no_of_components = no_of_components, cores = cores, ...)

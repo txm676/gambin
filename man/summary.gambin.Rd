@@ -26,9 +26,9 @@ A list of class 'summary.gambin' with nine elements, containing
 \description{
 S3 method for class 'gambin'. \code{summary.gambin} creates
   summary statistics for objects of class 'gambin'.The summary method
-  generates more useful information for the user than the standard model
-  fitting functions. Another S3 method (\code{print.summary.gambin}; not
-  documented) is used to print the output.
+  generates more useful information (e.g. confidence intervals) for the user
+  than the standard model fitting function. Another S3 method
+  (\code{print.summary.gambin}; not documented) is used to print the output.
 }
 \details{
 For the one-component gambin model the confidence interval for the
@@ -48,5 +48,5 @@ fit = fit_abundances(moths)
 summary(fit)
 # multimodal gambin models with confidence intervals
 biMod <- fit_abundances(moths, no_of_components = 2)
-summary(biMod, confint = T, n = 5) #large n takes a long time to run
+summary(biMod, confint = TRUE, n = 5) #large n takes a long time to run
 }
