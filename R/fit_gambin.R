@@ -118,6 +118,9 @@ fit_abundances <- function(abundances, subsample = 0, no_of_components = 1, core
     res$peak_octave_individual <- apply(fvals, 2, which.max) - 1 #minus one as octaves start at 0
   }
   
+  #add information for use with summary function
+  res$cores <- cores
+
   attr(res, "nobs") = nrow(mydata)
   class(res) = "gambin"
   res

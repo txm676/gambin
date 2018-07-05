@@ -2,7 +2,7 @@
 print.gambin = function(x, ...) 
 {
   cat("\n")
-  cat("GamBin distribution fit\n")
+  cat("Gambin distribution fit\n")
   cat("Data: ")
   cat(x$Dataname)
   cat("\n\n")
