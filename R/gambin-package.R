@@ -19,7 +19,7 @@
 #' associated confidence intervals. Methods are provided for plotting the results, and for calculating the likelihood of fits.
 #' 
 #' The package now provides functionality to fit multimodal gambin distributions (i.e. a gambin distribution with 
-#' more than one mode).
+#' more than one mode), and to deconstruct and examine a multimodal gambin model fit (\code{deconstruct_modes}).
 #' 
 #' @references Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V, Rigal, F., Cardoso, P. and Whittaker, R.J. (2014) 
 #' The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, implementation and interpretation. Ecography 37: 1002-1011.

@@ -25,7 +25,7 @@ and the alpha values standardised by the number of individuals).The package esti
 associated confidence intervals. Methods are provided for plotting the results, and for calculating the likelihood of fits.
 
 The package now provides functionality to fit multimodal gambin distributions (i.e. a gambin distribution with 
-more than one mode).
+more than one mode), and to deconstruct and examine a multimodal gambin model fit (\code{deconstruct_modes}).
 }
 \examples{
 data(moths, package = "gambin")

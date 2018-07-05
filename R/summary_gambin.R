@@ -1,10 +1,10 @@
 #' @title Summarising the results of a gambin model fit
 #' @description S3 method for class 'gambin'. \code{summary.gambin} creates
 #'   summary statistics for objects of class 'gambin'.The summary method
-#'   generates more useful information for the user than the standard model
-#'   fitting functions. Another S3 method (\code{print.summary.gambin}; not
-#'   documented) is used to print the output.
-#' @param object A gambin model fit object from \link{\code{fit_abundances}}
+#'   generates more useful information (e.g. confidence intervals) for the user
+#'   than the standard model fitting function. Another S3 method
+#'   (\code{print.summary.gambin}; not documented) is used to print the output.
+#' @param object A gambin model fit object from \code{fit_abundances}
 #' @param confint A logical argument specifying whether confidence intervals
 #'   should be calculated (via bootstrapping) for the parameters of gambin
 #'   models with more than 1 component (confidence intervals for 1 component

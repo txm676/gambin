@@ -4,6 +4,7 @@
   * Bug fix: confidence intervals for alpha 
   * New tests included
   * Adding a new 'deconstruct_modes' function to enable more in depth analysis of a multimodal gambin model fit
+  * Confidence intervals for multi-component gambin model parameters
 
 ## Version 2.3.0
 
