@@ -12,6 +12,7 @@ print.summary.gambin = function(x, ...)
     rownames(vals) = paste0("alpha", seq_along(x$Alpha))
     cat("Coefficients:\n")
     print(vals)
+    cat("\n")
   } else {
     if (length(x$ConfInt95) == 1){
       cat("No confidence intervals calculated", "\n\n")

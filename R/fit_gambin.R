@@ -33,11 +33,13 @@ core_message = function(cores) {
 #' (particuarly on large datasets), the optimisation algorithm can be slow. In such cases, the process
 #' can be speeded up by using the \code{cores} parameter to enable parallel computing.
 #' 
-#' The \code{plot} method creates a barplot showing the observed
-#' number of species in octaves, with the fitted GamBin distribution shown as black dots.
+#' The \code{plot} method creates a barplot showing the observed number of
+#' species in octaves, with the fitted GamBin distribution shown as black dots.
+#' The \code{summary.gambin} method provides additional useful information such
+#' as confidence intervals around the model parameter estimates.
 #' @return The \code{fit_abundances} function returns an object of class \code{gambin}, with the \code{alpha},
 #' \code{w}
-#' and \code{MaxOctave} parameters of the GamBin mixture distribution,
+#' and \code{MaxOctave} parameters of the gambin mixture distribution,
 #' the likelihood of the fit, and the empirical distribution over octaves.
 #' @importFrom stats optim
 #' @examples

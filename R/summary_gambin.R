@@ -14,6 +14,7 @@
 #' @param \dots Further arguments to pass
 #' @details For the one-component gambin model the confidence interval for the
 #'   alpha parameter is calculated automatically using an analytical solution.
+#'
 #'   For gambin models with more than one component no analytical solution for
 #'   deriving the confidence intervals is known. Instead, a bootstrapping
 #'   procedure can be used (using the \code{confint} and \code{n} arguments) to
@@ -22,6 +23,13 @@
 #'   with more than two components. Thus, the default is that confidence
 #'   intervals are not automatically calculated for gambin models with more than
 #'   one component (i.e. \code{confint} == FALSE).
+#'
+#'   In addition, it should be noted that in certain case the confidence
+#'   intervals around the alpha parameters in multi-component gambin models can
+#'   be quite wide. This is due to changes in the max octaves of the component
+#'   distributions in the bootstrapped samples. It can be useful to make a plot
+#'   (e.g. a dependency boxplot) of the n alpha values against the max octave
+#'   values.
 #' @return A list of class 'summary.gambin' with nine elements, containing
 #'   useful information about the model fit.
 #' @importFrom stats chisq.test
