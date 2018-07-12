@@ -14,6 +14,9 @@ print.summary.gambin = function(x, ...)
     print(vals)
     cat("\n")
   } else {
+    cat("Alpha:\t")
+    cat(x$alpha)
+    cat("\n\n")
     if (length(x$ConfInt95) == 1){
       cat("No confidence intervals calculated", "\n\n")
     } else {
@@ -21,9 +24,7 @@ print.summary.gambin = function(x, ...)
       print(x$ConfInt95)
       cat("\n\n")
     }
-    cat("Alpha:\t")
-    cat(x$alpha)
-    cat("\n\n")
+
   }
 
   cat("MaxOctave:\t")

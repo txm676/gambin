@@ -50,6 +50,16 @@ dgambin_single = function(x, alpha, maxoctave, log = FALSE)
 #' dgambin(0:5, alpha = c(1,2), maxoctave = c(4, 4), w = c(1, 0))
 #' expected = gambin_exp(4, 13, total_species = 200)
 #' plot(expected, type = "l")
+#' 
+#' ##draw random values from a gambin distribution 
+#' x = rgambin(1e6, alpha = 2, maxoctave = 7) 
+#' x = table(x)
+#' freq = as.vector(x)
+#' values = as.numeric(as.character(names(x)))
+#' abundances = data.frame(octave=values, species = freq)
+#' fit_abundances(abundances, no_of_components = 1)
+#' 
+#' 
 #' @export
 dgambin = function(x, alpha, maxoctave, w = 1, log = FALSE)
 {
