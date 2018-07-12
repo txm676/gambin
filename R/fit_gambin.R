@@ -24,13 +24,13 @@ core_message = function(cores) {
 #' distributions depend on sample size, abundances of different communities should be compared
 #' on equally large samples. The sample size can be set by the \code{subsample} parameter.
 #' To estimate \code{alpha} from a standardised sample, the function must be run several
-#' times; see the examples. The \code{no_of_components} parameter enables mutlimodal gambin
+#' times; see the examples. The \code{no_of_components} parameter enables multimodal gambin
 #' distributions to be fitted. For example, setting \code{no_of_components} equal to 2, the bimodal
 #' gambin model is fitted. When a multimodal gambin model is fitted (with g modes), the return values are the alpha
 #' parameters of the g different component distributions, the max octave values for the g component distributions 
 #' (as the max octave values for the g-1 component distributions are allowed to vary), and the and the weight parameter(s) 
 #' which denote the fraction of objects within each g component distribution. When fitting multimodal gambin models
-#' (particuarly on large datasets), the optimisation algorithm can be slow. In such cases, the process
+#' (particularly on large datasets), the optimisation algorithm can be slow. In such cases, the process
 #' can be speeded up by using the \code{cores} parameter to enable parallel computing.
 #' 
 #' The \code{plot} method creates a barplot showing the observed number of

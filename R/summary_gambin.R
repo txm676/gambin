@@ -19,7 +19,7 @@
 #'   deriving the confidence intervals is known. Instead, a bootstrapping
 #'   procedure can be used (using the \code{confint} and \code{n} arguments) to
 #'   generate confidence intervals around the alpha and max octave parameters.
-#'   However, the process can be time-consuming, particuarly for gambin models
+#'   However, the process can be time-consuming, particularly for gambin models
 #'   with more than two components. Thus, the default is that confidence
 #'   intervals are not automatically calculated for gambin models with more than
 #'   one component (i.e. \code{confint} == FALSE).
