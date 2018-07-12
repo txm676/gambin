@@ -32,7 +32,7 @@ classification data.}
 
 \item{plot_modes}{A logical argument specifying whether a barplot of the
 model fit with highlighted octaves should be generated. If \code{categ =
-FALSE} a barplot is produced wherby just the modal octaves are highlighted
+FALSE} a barplot is produced whereby just the modal octaves are highlighted
 in red. If \code{categ = TRUE} a barplot is produced whereby the bar for
 each octave is split into n parts, where n equals the number of species
 categories.}
@@ -65,7 +65,7 @@ The function enables greater exploration of a multimodal gambin
   function also returns a summary table with the number of each species
   category in each octave provided. The user can then use these data to run
   different tests to test whether, for example, the number of species in each
-  category in the modal octaves is signficantly different than expected by
+  category in the modal octaves is significantly different than expected by
   chance. If \code{plot_modes = TRUE} a split barplot is returned whereby
   each bar (representing an octave) is split into the n species categories.
 
