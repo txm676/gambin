@@ -5,8 +5,8 @@ output: rmarkdown::html_vignette
 bibliography: refs.bib
 vignette: >
   %\VignetteIndexEntry{Gambin overview}
-  \usepackage[utf8]{inputenc}
   %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 editor_options: 
   chunk_output_type: console
 ---
@@ -47,7 +47,7 @@ results, and for calculating the likelihood of fits.
 It has become increasingly apparent that many empirical SADs are in fact 
 multimodal (@antao2017). As such, recent work has focused on expanding the
 standard unimodal gambin model to allow it to fit distributions with multiple
-modes (Matthews et al. In prep). For example, the bimodal gambin model can be
+modes (@Matthews2019). For example, the bimodal gambin model can be
 calculated as the integration of two gambin distributions. The corresponding
 likelihood function for the bimodal gambin model contain's four parameters: the
 shape parameters for the first and second group, the max octave of the first
@@ -56,7 +56,7 @@ representing the fraction of objects in the first group.It is relatively
 straightforward to extend the above approach for fitting the bimodal gambin
 model by maximum likelihood, to fitting gambin models with g modes. For each
 additional mode, a further three parameters are needed: the additional alpha,
-max octave and split parameters (see Matthews et al. In prep). Use the
+max octave and split parameters (see @Matthews2019). Use the
 fit_abundances() function in combination with the no_of_components of argument.
 The default is no_of_components = 1, which fits the standard unimodal gambin
 model. no_of_components = 2, fits the bimodal gambin model, and so on. As the
@@ -131,7 +131,4 @@ d1 <- deconstruct_modes(fits2, dat = categ, peak_val = NULL, abundances = "abund
 ```
 
 ## References
-
-Matthews, T.J. et al (In prep) Extension of the Gambin Distribution to
-Multimodal Species Abundance Distributions.
 

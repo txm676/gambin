@@ -76,10 +76,14 @@ fit_abundances(abundances, no_of_components = 1)
 
 }
 \references{
-Matthews, T.J. et al. (2017) Extension of the Gambin Distribution to Multimodal Species 
-Abundance Distributions. In prep.
+Matthews, T. J., Borregaard, M. K., Gillespie, C. S., Rigal,
+  F., Ugland, K. I., Krüger, R. F., . . . Whittaker, R. J. (2019) Extension of
+  the gambin model to multimodal species abundance distributions. Methods
+  in Ecology and Evolution, doi:10.1111/2041-210X.13122
 
-Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V, Rigal, F., Cardoso, P. and Whittaker, R.J. (2014) 
-The gambin model provides a superior fit to species abundance distributions with a single free parameter: evidence, 
-implementation and interpretation. Ecography 37: 1002-1011.
+  Matthews, T.J., Borregaard, M.K., Ugland, K.I., Borges, P.A.V, Rigal,
+  F., Cardoso, P. and Whittaker, R.J. (2014) The gambin model provides a
+  superior fit to species abundance distributions with a single free
+  parameter: evidence, implementation and interpretation. Ecography 37:
+  1002-1011.
 }

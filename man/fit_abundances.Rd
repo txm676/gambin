@@ -5,7 +5,8 @@
 \alias{fitGambin}
 \title{Fit a unimodal or multimodal gambin model to a species abundance distribution}
 \usage{
-fit_abundances(abundances, subsample = 0, no_of_components = 1, cores = 1)
+fit_abundances(abundances, subsample = 0, no_of_components = 1,
+  cores = 1)
 
 fitGambin(abundances, subsample = 0)
 }

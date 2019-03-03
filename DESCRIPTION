@@ -1,7 +1,7 @@
 Package: gambin
 Type: Package
 Title: Fit the Gambin Model to Species Abundance Distributions
-Version: 2.4.0
+Version: 2.4.1
 Authors@R: c(person(given="Thomas", family="Matthews", email="txm676@gmail.com",
     role = c("aut", "cre")), person(given=c("Michael", "Krabbe"), 
     family="Borregaard", email="mkborregaard@snm.ku.dk", role = "aut"), 
@@ -21,5 +21,6 @@ Depends: R(>= 3.0.0)
 URL: https://github.com/txm676/gambin/
 BugReports: https://github.com/txm676/gambin/issues
 License: GPL-3
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr
+Encoding: UTF-8

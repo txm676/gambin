@@ -1,4 +1,8 @@
 
+
+## Version 2.4.1
+  * Vignette edit to pass CRAN check
+
 ## Version 2.4.0
 
   * Bug fix: confidence intervals for alpha 
