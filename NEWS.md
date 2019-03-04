@@ -1,4 +1,5 @@
-
+## Version 2.4.2
+  * Adding new tests
 
 ## Version 2.4.1
   * Vignette edit to pass CRAN check
