@@ -7,7 +7,7 @@ test_that("fit_abundances returns correct info", {
   f2 <- fit_abundances(moths, no_of_components = 2)
   f3 <- fit_abundances(moths, subsample = 200)
   
-  expect_message(fit_abundances(moths, no_of_components = 2), "Using 1 core. Your machine has 12 available.")
+  expect_message(fit_abundances(moths, no_of_components = 2))
   
   expect_equal(round(f$alpha, 3), 1.645)
   expect_equal(round(f$octaves, 0), 10)
