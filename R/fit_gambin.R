@@ -16,7 +16,6 @@ core_message = function(cores) {
 #' If subsample == 0 the entire community is used
 #' @param no_of_components Number of components (i.e. modes) to fit.The default (no_of_components == 1) fits the standard
 #' unimodal gambin model.
-#' @param \dots Further arguments to pass to \code{barplot}
 #' @param cores No of cores to use when fitting. Use \code{parallel::detectCores()} to
 #' detect the number of cores on your machine. 
 #' @details The gambin distribution is fit to the number of species in abundance octaves,

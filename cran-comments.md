@@ -1,10 +1,10 @@
 
 ##This is a new submission
-*version 2.4.1 of gambin package 
-
+*version 2.4.3 of gambin package
+*removed ... from argumentation following new r-devel checks
 
 ##Test environments
-*local Windows 10 install, R 3.5.2
+*local Windows 10 install, R 3.6.2
 * linux-gnu, R Under development (unstable)(2018-06-20 r74923)(via Travis)
  
 ##R CMD check results

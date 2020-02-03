@@ -4,9 +4,16 @@
 \alias{deconstruct_modes}
 \title{Deconstruct a multimodal gambin model fit}
 \usage{
-deconstruct_modes(fit, dat, peak_val = NULL, abundances = "abundances",
-  species = "species", categ = NULL, plot_modes = TRUE,
-  col.statu = NULL)
+deconstruct_modes(
+  fit,
+  dat,
+  peak_val = NULL,
+  abundances = "abundances",
+  species = "species",
+  categ = NULL,
+  plot_modes = TRUE,
+  col.statu = NULL
+)
 }
 \arguments{
 \item{fit}{A gambin model fit where the number of components is greater than

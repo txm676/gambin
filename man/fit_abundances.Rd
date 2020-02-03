@@ -5,8 +5,7 @@
 \alias{fitGambin}
 \title{Fit a unimodal or multimodal gambin model to a species abundance distribution}
 \usage{
-fit_abundances(abundances, subsample = 0, no_of_components = 1,
-  cores = 1)
+fit_abundances(abundances, subsample = 0, no_of_components = 1, cores = 1)
 
 fitGambin(abundances, subsample = 0)
 }
@@ -21,8 +20,6 @@ unimodal gambin model.}
 
 \item{cores}{No of cores to use when fitting. Use \code{parallel::detectCores()} to
 detect the number of cores on your machine.}
-
-\item{\dots}{Further arguments to pass to \code{barplot}}
 }
 \value{
 The \code{fit_abundances} function returns an object of class \code{gambin}, with the \code{alpha},
