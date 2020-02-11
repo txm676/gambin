@@ -5,7 +5,7 @@
 
 ##Test environments
 *local Windows 10 install, R 3.6.2
-* linux-gnu, R Under development (unstable)(2018-06-20 r74923)(via Travis)
+* linux-gnu
  
 ##R CMD check results
 0 errors | 0 warnings | 0 notes
