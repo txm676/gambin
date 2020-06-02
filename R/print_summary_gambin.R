@@ -33,7 +33,7 @@ print.summary.gambin = function(x, ...)
   cat("\n\n")
   cat(paste("Chi-squared fit:", 
             paste("X^2 =", round(x$ChiSq$statistic, 3)), 
-            paste("df =", attr(x$logLik, "df")), 
+            paste("df =", x$ChiSq$parameter), 
             paste("p-value =", round(x$ChiSq$p.value, 3)), 
             "\n", sep = "\t" ))
   cat("\n")

@@ -1,3 +1,8 @@
+
+## Version 2.4.4
+ * changing the number of parameters in the X2 goodness of fit test to also include the number
+   of parameters in a gambin model fit (see vignette).
+
 ## Version 2.4.3
   * Editing code due to new CRAN checks
 

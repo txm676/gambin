@@ -12,7 +12,9 @@ deconstruct_modes(
   species = "species",
   categ = NULL,
   plot_modes = TRUE,
-  col.statu = NULL
+  col.statu = NULL,
+  plot_legend = TRUE,
+  legend_location = "topright"
 )
 }
 \arguments{
@@ -39,13 +41,20 @@ classification data.}
 
 \item{plot_modes}{A logical argument specifying whether a barplot of the
 model fit with highlighted octaves should be generated. If \code{categ =
-FALSE} a barplot is produced whereby just the modal octaves are highlighted
-in red. If \code{categ = TRUE} a barplot is produced whereby the bar for
-each octave is split into n parts, where n equals the number of species
+NULL} a barplot is produced whereby just the modal octaves are highlighted
+in red. If \code{categ} is provided a barplot is produced whereby the bar
+for each octave is split into n parts, where n equals the number of species
 categories.}
 
 \item{col.statu}{A vector of colours (of length n) for the split barplot,
 where n equals the number of species categories.}
+
+\item{plot_legend}{Should the barplot include a legend. Only applicable when
+\code{plot_modes = TRUE} and \code{categ} is not NULL.}
+
+\item{legend_location}{If \code{plot_legend = TRUE}, where should the legend
+be located. Should be one of “bottomright”, “bottom”, “bottomleft”, “left”,
+“topleft”, “top”, “topright” (default), “right”, or “center”.}
 }
 \value{
 An object of class \code{deconstruct}. The object
@@ -75,7 +84,7 @@ The function enables greater exploration of a multimodal gambin
   category in the modal octaves is significantly different than expected by
   chance. If \code{plot_modes = TRUE} a split barplot is returned whereby
   each bar (representing an octave) is split into the n species categories.
-
+  
   Species classification data should be of type character (e.g. native or
   invasive).
 

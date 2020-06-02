@@ -1,4 +1,4 @@
-## ------------------------------------------------------------------------
+## -----------------------------------------------------------------------------
 library("gambin")
 data(moths, package="gambin")
 
@@ -38,7 +38,11 @@ AIC(fit_abundances(abundances))
 #and calculate the number of the differet categories in each octave
 data(categ, package="gambin")
 fits2 = fit_abundances(categ$abundances, no_of_components = 2)
-#without species classification data
 d1 <- deconstruct_modes(fits2, dat = categ, peak_val = NULL, abundances = "abundances", 
-     species = "species", categ = "status", col.statu = c("green", "red", "blue"))
+     species = "species", categ = "status", col.statu = c("green", "red", "blue"),
+     plot_legend = FALSE)
+#do the same but don't provide category data - this just highlights the modal octaves
+d2 <- deconstruct_modes(fits2, dat = categ, peak_val = NULL, abundances = "abundances", 
+     species = "species", categ = NULL)
+
 

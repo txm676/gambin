@@ -5,8 +5,8 @@ output: rmarkdown::html_vignette
 bibliography: refs.bib
 vignette: >
   %\VignetteIndexEntry{Gambin overview}
-  %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
+  %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
   chunk_output_type: console
 ---
@@ -42,7 +42,17 @@ success in a binomial process with $x$ trials. Use the fit_abundances() function
 to fit the gambin model to a vector of species abundances, optionally using a
 subsample of the individuals. The package estimates the alpha (shape) parameter
 with associated confidence intervals. Methods are provided for plotting the
-results, and for calculating the likelihood of fits.
+results, and for calculating the likelihood of fits. The summary() function 
+provides the confidence intervals around alpha, and also the results of a
+X2 goodness of fit test. Prior to package version 2.4.4, we simply used the
+default degrees of freedom in this test (i.e. number of data points - 1).
+This is not optimal as the degrees of freedom should arguably also include the
+number of parameters used to fit the gambin model itself. As such, in version
+2.4.4 we have edited the degrees of freedom to reflect this. One problem is that
+the chisq.test() function in R does not have an argument for setting the degrees
+of freedom; thus, we have had to use a workaround. As a result of this change,
+X2 results generated using older versions of the package will differ slightly
+from those using 2.4.4 and later.
 
 It has become increasingly apparent that many empirical SADs are in fact 
 multimodal (@antao2017). As such, recent work has focused on expanding the
@@ -72,15 +82,15 @@ determines the proportion of different types of species in each octave.
 Often the aim of SAD studies is to compare the form of the SAD across different
 sites / samples. The alpha parameter of the one component gambin model (alpha)
 has been found to provide a useful metric in this regard. Use the
-mult_abundances function to calculate alpha values for a set of different
+mult_abundances() function to calculate alpha values for a set of different
 samples / sites. However, because the alpha parameter of the gambin model is
 dependent on sample size, when comparing the alpha values between sites it can
 be useful to first standardise the number of individuals in all sites. By
-default, the mult_abundances function calculates the total number of individuals
-in each site and selects the minimum value for standardising. This minimum
-number of individuals is then sampled from each site and the gambin model fitted
-to this subsample and the alpha value stored. This process is then repeated N
-times and the mean alpha value is calculated for each site.
+default, the mult_abundances() function calculates the total number of
+individuals in each site and selects the minimum value for standardising. This
+minimum number of individuals is then sampled from each site and the gambin
+model fitted to this subsample and the alpha value stored. This process is then
+repeated N times and the mean alpha value is calculated for each site.
 
 
 ## Example
@@ -125,9 +135,13 @@ AIC(fit_abundances(abundances))
 #and calculate the number of the differet categories in each octave
 data(categ, package="gambin")
 fits2 = fit_abundances(categ$abundances, no_of_components = 2)
-#without species classification data
 d1 <- deconstruct_modes(fits2, dat = categ, peak_val = NULL, abundances = "abundances", 
-     species = "species", categ = "status", col.statu = c("green", "red", "blue"))
+     species = "species", categ = "status", col.statu = c("green", "red", "blue"),
+     plot_legend = FALSE)
+#do the same but don't provide category data - this just highlights the modal octaves
+d2 <- deconstruct_modes(fits2, dat = categ, peak_val = NULL, abundances = "abundances", 
+     species = "species", categ = NULL)
+
 ```
 
 ## References

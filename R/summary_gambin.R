@@ -66,7 +66,9 @@ summary.gambin = function(object, confint = FALSE, n = 50, ...)
   
   chiprobs = object$fitted.values/sum(object$fitted.values)
   suppressWarnings(res$ChiSq <- chisq.test(object$Data$species, p = chiprobs))
-  
+  res$ChiSq$parameter <- c(df = length(object$Data$species) - 1 - attr(res$logLik, "df"))
+  res$ChiSq$p.value <- pchisq(res$ChiSq$statistic, df = res$ChiSq$parameter, 
+                              lower.tail=FALSE)
   attr(res, "nobs") = nrow(res$Data)
   class(res) = "summary.gambin"
   return(res)

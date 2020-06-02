@@ -33,6 +33,7 @@ test_that("summary_fit_abundances works properly", {
   expect_is(f, "summary.gambin")
   expect_equal(round(f$ConfInt95, 2), c(1.32, 2.03))
   expect_equal(round(f2$ChiSq$statistic, 2), c("X-squared" = 2.92))
-  
-  
+  expect_equal(f2$ChiSq$parameter, c("df" = 5))
+  expect_equal(round(f2$ChiSq$p.value, 2), c("X-squared" = 0.71))
+  expect_equal(f$ChiSq$parameter, c("df" = 8))
 })

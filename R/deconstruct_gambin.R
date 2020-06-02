@@ -57,12 +57,17 @@ print.deconstruct <- function(x){
 #'   classification data.
 #' @param plot_modes A logical argument specifying whether a barplot of the
 #'   model fit with highlighted octaves should be generated. If \code{categ =
-#'   FALSE} a barplot is produced whereby just the modal octaves are highlighted
-#'   in red. If \code{categ = TRUE} a barplot is produced whereby the bar for
-#'   each octave is split into n parts, where n equals the number of species
+#'   NULL} a barplot is produced whereby just the modal octaves are highlighted
+#'   in red. If \code{categ} is provided a barplot is produced whereby the bar
+#'   for each octave is split into n parts, where n equals the number of species
 #'   categories.
 #' @param col.statu A vector of colours (of length n) for the split barplot,
 #'   where n equals the number of species categories.
+#' @param plot_legend Should the barplot include a legend. Only applicable when
+#'   \code{plot_modes = TRUE} and \code{categ} is not NULL.
+#' @param legend_location If \code{plot_legend = TRUE}, where should the legend
+#'   be located. Should be one of “bottomright”, “bottom”, “bottomleft”, “left”,
+#'   “topleft”, “top”, “topright” (default), “right”, or “center”.
 #' @details The function enables greater exploration of a multimodal gambin
 #'   model fit. If no species classification data are available (i.e.
 #'   \code{categ = NULL}) the function returns the modal octaves of the
@@ -75,7 +80,7 @@ print.deconstruct <- function(x){
 #'   category in the modal octaves is significantly different than expected by
 #'   chance. If \code{plot_modes = TRUE} a split barplot is returned whereby
 #'   each bar (representing an octave) is split into the n species categories.
-#'
+#'   
 #'   Species classification data should be of type character (e.g. native or
 #'   invasive).
 #'
@@ -107,7 +112,8 @@ print.deconstruct <- function(x){
 #' @export
 
 deconstruct_modes <- function(fit, dat, peak_val = NULL, abundances = "abundances", species = "species", categ = NULL,
-                              plot_modes = TRUE, col.statu=NULL){
+                              plot_modes = TRUE, col.statu=NULL, plot_legend = TRUE,
+                              legend_location = "topright"){
   
   if (class(fit) != "gambin") stop("fit is not a gambin object")
   if (!(is.data.frame(dat) || is.matrix(dat))) stop ("dat should be a dataframe or matrix")
@@ -162,7 +168,9 @@ deconstruct_modes <- function(fit, dat, peak_val = NULL, abundances = "abundance
       }
       yLim = max(colSums(vN)) * 1.10
       barplot(vN, col = cols, names.arg = fit$Data$octave, ylim = c(0, yLim))
-      legend("topright", legend = rownames(vN), pch = 15, col = cols)
+      if (plot_legend){
+        legend(legend_location, legend = rownames(vN), pch = 15, col = cols)
+      }
       points(fit, pch = 16, col = "black")
       
     } else {
