@@ -32,14 +32,16 @@
 #'   values.
 #' @return A list of class 'summary.gambin' with nine elements, containing
 #'   useful information about the model fit.
-#' @importFrom stats chisq.test
+#' @importFrom stats chisq.test pchisq
 #' @examples
+#'  \dontrun{
 #' data(moths)
 #' fit = fit_abundances(moths)
 #' summary(fit)
 #' # multimodal gambin models with confidence intervals
 #' biMod <- fit_abundances(moths, no_of_components = 2)
 #' summary(biMod, confint = TRUE, n = 5) #large n takes a long time to run
+#' }
 #' @export
 #' 
 summary.gambin = function(object, confint = FALSE, n = 50, ...)

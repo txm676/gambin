@@ -1,11 +1,10 @@
 
 ##This is a new submission
-*version 2.4.3 of gambin package
-*removed ... from argumentation following new r-devel checks
+*version 2.4.4 of gambin package
 
 ##Test environments
 *local Windows 10 install, R 3.6.2
-* linux-gnu
+* x86_64-pc-linux-gnu (64-bit), R 4.0.0 and R Under development(via Travis)
  
 ##R CMD check results
 0 errors | 0 warnings | 0 notes
