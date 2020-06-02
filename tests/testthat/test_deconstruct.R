@@ -12,7 +12,7 @@ test_that("deconstruct_modes returns correct info", {
                           species = "species", categ = "status", plot_modes = FALSE)
   expect_equal(d4$Peak_locations, c(0, 5))
   expect_equal(d4$Summary_table[1,2], 74)
-  
+  data(moths)
   expect_error(deconstruct_modes(moths), "fit is not a gambin object")
   
 })
