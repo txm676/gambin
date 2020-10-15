@@ -4,7 +4,7 @@
 Status](https://travis-ci.org/txm676/gambin.svg?branch=master)](https://travis-ci.org/txm676/gambin)
 [![Downloads](http://cranlogs.r-pkg.org/badges/gambin?color=brightgreen)](https://cran.r-project.org/package=gambin)
 [![CRAN
-Downloads](http://cranlogs.r-pkg.org/badges/grand-total/sars)](https://cran.r-project.org/package=sars)
+Downloads](http://cranlogs.r-pkg.org/badges/grand-total/gambin)](https://cran.r-project.org/package=gambin)
 [![CRAN](http://www.r-pkg.org/badges/version/gambin)](https://cran.r-project.org/package=gambin)
 [![codecov.io](https://codecov.io/github/txm676/gambin/coverage.svg?branch=master)](https://codecov.io/github/txm676/gambin?branch=master)
 
