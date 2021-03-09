@@ -2,7 +2,7 @@
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^README-.*\.png$
-.travis.yml
 ^vignettes\figure
 ^cran-comments\.md$
 ^CRAN-RELEASE$
+^\.circleci$

@@ -1,0 +1,21 @@
+#https://walczak.org/2017/06/how-to-add-code-coverage-codecov-to-your-r-package/
+
+comment: false
+language: R
+sudo: false
+cache: packages
+codecov:
+  token: d1e8b442-17bf-4d68-8bc1-2b5dbc7b69e4
+
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
+    patch:
+      default:
+        target: auto
+        threshold: 1%
+        informational: true
