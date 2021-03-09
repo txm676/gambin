@@ -5,7 +5,7 @@ language: R
 sudo: false
 cache: packages
 codecov:
-  token: d1e8b442-17bf-4d68-8bc1-2b5dbc7b69e4
+  token: cf3eb77e-c535-4e0b-9ab2-c4952f2cf10b
 
 coverage:
   status:
