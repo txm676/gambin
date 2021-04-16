@@ -1,10 +1,11 @@
 
 ##This is a new submission
-*version 2.4.4 of gambin package
+*version 2.5.0 of gambin package
+*adding rmarkdown dependency to fix CRAN issue
 
 ##Test environments
-*local Windows 10 install, R 3.6.2
-* x86_64-pc-linux-gnu (64-bit), R 4.0.0 and R Under development(via Travis)
+*local Windows 10 install, R 4.0.1
+*Ubuntu 18.04.5 LTS (64-bit), R 4.0.4 (via Circle CI)
  
 ##R CMD check results
 0 errors | 0 warnings | 0 notes

@@ -4,10 +4,12 @@
 \name{categ}
 \alias{categ}
 \title{Simulated bird SAD dataset with species classification data}
-\format{A dataframe with three columns: 1) 'abundances' = the abundance of
+\format{
+A dataframe with three columns: 1) 'abundances' = the abundance of
   each species, 2) 'species' = the species names, and 3) 'status' the species
   origin classification. In regards to (3) each species is classified as
-  either native (N), exotic (E) or invasive (I).}
+  either native (N), exotic (E) or invasive (I).
+}
 \source{
 This package.
 }

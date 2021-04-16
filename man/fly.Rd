@@ -4,11 +4,13 @@
 \name{fly}
 \alias{fly}
 \title{Brazilian Horse Fly Data}
-\format{A list with two elements. The first element contains a numerical
+\format{
+A list with two elements. The first element contains a numerical
   vector with the abundance of 164 fly species sampled at various sites
   across Brazil. The second element contains a numerical vector with the
   abundance of 58 fly specie sampled at a single site within Brazil using
-  just canopy traps.}
+  just canopy traps.
+}
 \source{
 This package.
 }
